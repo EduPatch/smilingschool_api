@@ -1,185 +1,235 @@
 {
-	"$schema": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json",
-	"openapi": "3.0.3",
-	"info": {
-		"description": "A swagger schema of the InfoMentor Hub API",
-		"title": "InfoMentor Hub Swagger API",
-		"version": "1.0.0"
-	},
-	"components": {
-		"schemas": {
-			"notificationState": {
-				"type": "string",
-				"enum": ["New", "Seen", "Read", "Cleared"]
-			},
-			"appType": {
-				"type": "string",
-				"enum": [
-					"Timeline",
-					"Assignment",
-					"News",
-					"Assessment",
-					"WeeklyPlan",
-					"HomeWork",
-					"Portfolio",
-					"Calendar",
-					"CalendarV2",
-					"ParentMeeting",
-					"Uol",
-					"OnlineTest",
-					"Survey",
-					"Unknown",
-					"Attendance",
-					"IUP",
-					"SpecialPlan",
-					"Journal",
-					"Consent"
-				]
-			}
-		}
-	},
-	"security": [],
-	"tags": [
-		{
-			"name": "NotificationApp",
-			"description": "The API app for notifications"
-		},
-		{ "name": "timetable", "description": "The API app for the timetable" },
-		{
-			"name": "authentication",
-			"description": "The API app for authentication"
-		},
-		{ "name": "Communication", "description": "The API app for communication" },
-		{
-			"name": "Documentation",
-			"description": "The API app for documentation/notes"
-		},
-		{ "name": "attendance", "description": "The API app for attendance" },
-		{ "name": "AssessmentV2", "description": "The API app for assessments" },
-		{ "name": "calendarv2", "description": "The API app for the calendar" }
-	],
-	"paths": {
-		"/NotificationApp/NotificationApp/GetNotification": {
-			"description": "Get all user notifications",
-			"post": {
-				"tags": ["NotificationApp"],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"type": "object",
-								"properties": {
-									"timestamp": {
-										"type": "string",
-										"format": "date-time"
-									}
-								}
-							}
-						}
-					}
-				},
-				"responses": {
-					"default": {
-						"description": "Responds with a list of notification entries depending on the timestamp supplied",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "object",
-									"properties": {
-										"id": {
-											"type": "integer"
-										},
-										"title": {
-											"type": "string"
-										},
-										"subTitle": {
-											"type": "string"
-										},
-										"subjectsCourses": {
-											"type": "string"
-										},
-										"dateSent": {
-											"type": "string",
-											"format": "date-time"
-										},
-										"appType": {
-											"$ref": "#/components/schemas/appType"
-										},
-										"state": {
-											"$ref": "#/components/schemas/notificationState"
-										},
-										"type": {
-											"type": "string"
-										},
-										"url": {
-											"type": "string"
-										},
-										"orderDate": {
-											"type": "string",
-											"format": "date-time"
-										},
-										"pupilIM2Id": {
-											"type": "integer"
-										},
-										"pupilSourceId": {
-											"type": "string"
-										},
-										"currentlySelectedPupil": {
-											"type": "boolean"
-										},
-										"entityTypeString": {
-											"type": "string"
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/NotificationApp/NotificationApp/UpdateNotificationState": {
-			"description": "Update notification states",
-			"post": {
-				"tags": ["NotificationApp"],
-				"requestBody": {
-					"content": {
-						"application/json": {
-							"schema": {
-								"type": "object",
-								"properties": {
-									"ids": {
-										"type": "array",
-										"items": {
-											"type": "integer"
-										}
-									},
-									"state": {
-										"$ref": "#/components/schemas/notificationState"
-									}
-								}
-							}
-						}
-					}
-				},
-				"responses": {
-					"default": {
-						"description": "Responds with a success value of true or false",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "object",
-									"properties": {
-										"success": {
-											"type": "boolean"
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+    "$schema": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json",
+    "openapi": "3.0.3",
+    "info": {
+        "description": "A swagger schema of the InfoMentor Hub API",
+        "title": "InfoMentor Hub Swagger API",
+        "version": "1.0.0"
+    },
+    "components": {
+        "schemas": {
+            "notificationState": {
+                "type": "string",
+                "enum": [
+                    "New",
+                    "Seen",
+                    "Read",
+                    "Cleared"
+                ]
+            },
+            "appType": {
+                "type": "string",
+                "enum": [
+                    "Timeline",
+                    "Assignment",
+                    "News",
+                    "Assessment",
+                    "WeeklyPlan",
+                    "HomeWork",
+                    "Portfolio",
+                    "Calendar",
+                    "CalendarV2",
+                    "ParentMeeting",
+                    "Uol",
+                    "OnlineTest",
+                    "Survey",
+                    "Unknown",
+                    "Attendance",
+                    "IUP",
+                    "SpecialPlan",
+                    "Journal",
+                    "Consent"
+                ]
+            }
+        }
+    },
+    "security": [],
+    "tags": [
+        {
+            "name": "NotificationApp",
+            "description": "The API app for notifications"
+        },
+        {
+            "name": "timetable",
+            "description": "The API app for the timetable"
+        },
+        {
+            "name": "authentication",
+            "description": "The API app for authentication"
+        },
+        {
+            "name": "Communication",
+            "description": "The API app for communication"
+        },
+        {
+            "name": "Documentation",
+            "description": "The API app for documentation/notes"
+        },
+        {
+            "name": "attendance",
+            "description": "The API app for attendance"
+        },
+        {
+            "name": "AssessmentV2",
+            "description": "The API app for assessments"
+        },
+        {
+            "name": "calendarv2",
+            "description": "The API app for the calendar"
+        }
+    ],
+    "paths": {
+        "/NotificationApp/NotificationApp/GetNotification": {
+            "description": "Get all user notifications",
+            "post": {
+                "tags": [
+                    "NotificationApp"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "timestamp": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Responds with a list of notification entries depending on the timestamp supplied",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "subTitle": {
+                                            "type": "string"
+                                        },
+                                        "subjectsCourses": {
+                                            "type": "string"
+                                        },
+                                        "dateSent": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "appType": {
+                                            "$ref": "#/components/schemas/appType"
+                                        },
+                                        "state": {
+                                            "$ref": "#/components/schemas/notificationState"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "orderDate": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "pupilIM2Id": {
+                                            "type": "integer"
+                                        },
+                                        "pupilSourceId": {
+                                            "type": "string"
+                                        },
+                                        "currentlySelectedPupil": {
+                                            "type": "boolean"
+                                        },
+                                        "entityTypeString": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/NotificationApp/NotificationApp/UpdateNotificationState": {
+            "description": "Update notification states",
+            "post": {
+                "tags": [
+                    "NotificationApp"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "state": {
+                                        "$ref": "#/components/schemas/notificationState"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Responds with a success value of true or false",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/authentication/authentication/isauthenticated": {
+            "post": {
+                "tags": ["authentication"],
+                "description": "Retreive if user is authenticated or not",
+                "parameters": [
+                    {
+                        "name": "_",
+                        "in": "path",
+                        "description": "Parameter to provide a timestamp. Purpose is unknown"
+                    }
+                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Always returns 200, but the content actually determines if it was successful or not!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
