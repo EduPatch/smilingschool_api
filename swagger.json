@@ -40,6 +40,46 @@
                     "Journal",
                     "Consent"
                 ]
+            },
+            "attendanceHeader": {
+                "type": "object",
+                "properties": {
+                    "displayText": {
+                        "type": "string"
+                    },
+                    "isSortable": {
+                        "type": "boolean"
+                    },
+                    "sortField": {
+                        "type": "string"
+                    },
+                    "sortBy": {
+                        "type": "boolean"
+                    },
+                    "sortDesc": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "attendanceFilter": {
+                "type": "object",
+                "properties": {
+                    "defaultText": {
+                        "type": "string"
+                    },
+                    "options": {
+                        "type": "array"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    }
+                }
             }
         }
     },
@@ -207,7 +247,9 @@
         },
         "/authentication/authentication/isauthenticated": {
             "post": {
-                "tags": ["authentication"],
+                "tags": [
+                    "authentication"
+                ],
                 "description": "Retreive if user is authenticated or not",
                 "parameters": [
                     {
@@ -215,7 +257,6 @@
                         "in": "path",
                         "description": "Parameter to provide a timestamp. Purpose is unknown"
                     }
-                    
                 ],
                 "responses": {
                     "200": {
@@ -224,6 +265,542 @@
                             "application/json": {
                                 "schema": {
                                     "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/attendance/attendance/appData": {
+            "post": {
+                "tags": [
+                    "attendance"
+                ],
+                "description": "Retreive data for the app such as field texts, translations, etc.",
+                "parameters": [
+                    {
+                        "name": "_",
+                        "in": "path",
+                        "description": "Parameter to provide a timestamp. Purpose is unknown"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Always returns 200, but the content actually determines if it was successful or not!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "pagedList": {
+                                            "type": "object",
+                                            "properties": {
+                                                "translations": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "listTitle": {
+                                                            "type": "string"
+                                                        },
+                                                        "paging": {
+                                                            "type": "string"
+                                                        },
+                                                        "filter": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "headers": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "date": {
+                                                            "$ref": "#/components/schemas/attendanceHeader"
+                                                        },
+                                                        "time": {
+                                                            "$ref": "#/components/schemas/attendanceHeader"
+                                                        },
+                                                        "subject": {
+                                                            "$ref": "#/components/schemas/attendanceHeader"
+                                                        },
+                                                        "reason": {
+                                                            "$ref": "#/components/schemas/attendanceHeader"
+                                                        }
+                                                    }
+                                                },
+                                                "filters": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "translations": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "apply": {
+                                                                    "type": "string"
+                                                                },
+                                                                "clear": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "filters": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "$ref": "#/components/schemas/attendanceFilter"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "listUrl": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "itemUrl": {
+                                                    "type": "string",
+                                                    "format": "uri",
+                                                    "nullable": true
+                                                },
+                                                "page": {
+                                                    "type": "integer"
+                                                },
+                                                "pageSize": {
+                                                    "type": "integer"
+                                                },
+                                                "totalItems": {
+                                                    "type": "integer"
+                                                },
+                                                "items": {
+                                                    "type": "array"
+                                                },
+                                                "allItemIds": {
+                                                    "type": "array",
+                                                    "nullable": true
+                                                },
+                                                "more": {
+                                                    "type": "array",
+                                                    "nullable": true
+                                                }
+                                            }
+                                        },
+                                        "leaveRequests": {
+                                            "type": "array"
+                                        },
+                                        "absenceTodaySessions": {
+                                            "type": "array"
+                                        },
+                                        "absenceTomorrowSessions": {
+                                            "type": "array"
+                                        },
+                                        "autoConfirmAbsence": {
+                                            "type": "boolean"
+                                        },
+                                        "absentToday": {
+                                            "type": "boolean"
+                                        },
+                                        "absenceTodayComment": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "absentTomorrow": {
+                                            "type": "boolean"
+                                        },
+                                        "absenceTomorrowComment": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "absenceTodayLocked": {
+                                            "type": "boolean"
+                                        },
+                                        "absenceTomorrowLocked": {
+                                            "type": "boolean"
+                                        },
+                                        "canRegisterDayAbsence": {
+                                            "type": "boolean"
+                                        },
+                                        "canRegisterSessionAbsence": {
+                                            "type": "boolean"
+                                        },
+                                        "isIcelandic": {
+                                            "type": "boolean"
+                                        },
+                                        "canRegisterSession": {
+                                            "type": "boolean"
+                                        },
+                                        "showSubjects": {
+                                            "type": "boolean"
+                                        },
+                                        "showComment": {
+                                            "type": "boolean"
+                                        },
+                                        "showFilter": {
+                                            "type": "boolean"
+                                        },
+                                        "isPlaySchool": {
+                                            "type": "boolean"
+                                        },
+                                        "absenceTodayDate": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "absenceTomorrowDate": {
+                                            "type": "string",
+                                            "format": "date"
+                                        },
+                                        "canAddSicknessToday": {
+                                            "type": "boolean"
+                                        },
+                                        "canAddSicknessTomorrow": {
+                                            "type": "boolean"
+                                        },
+                                        "isParent": {
+                                            "type": "boolean"
+                                        },
+                                        "hasLeaveLicence": {
+                                            "type": "boolean"
+                                        },
+                                        "canRequestLeave": {
+                                            "type": "boolean"
+                                        },
+                                        "hasLeaveTwoGuardiansLicence": {
+                                            "type": "boolean"
+                                        },
+                                        "isOnlyOneGuardianRegistered": {
+                                            "type": "boolean"
+                                        },
+                                        "isOver18Pupil": {
+                                            "type": "boolean"
+                                        },
+                                        "translations": {
+                                            "type": "object",
+                                            "properties": {
+                                                "reportSickness": {
+                                                    "type": "string"
+                                                },
+                                                "absenceReport": {
+                                                    "type": "string"
+                                                },
+                                                "registrationDetails": {
+                                                    "type": "string"
+                                                },
+                                                "dateLabel": {
+                                                    "type": "string"
+                                                },
+                                                "timeLabel": {
+                                                    "type": "string"
+                                                },
+                                                "subjectLabel": {
+                                                    "type": "string"
+                                                },
+                                                "reasonLabel": {
+                                                    "type": "string"
+                                                },
+                                                "registeredByLabel": {
+                                                    "type": "string"
+                                                },
+                                                "fromLabel": {
+                                                    "type": "string"
+                                                },
+                                                "comments": {
+                                                    "type": "string"
+                                                },
+                                                "today": {
+                                                    "type": "string"
+                                                },
+                                                "tomorrow": {
+                                                    "type": "string"
+                                                },
+                                                "dateToday": {
+                                                    "type": "string"
+                                                },
+                                                "dateTomorrow": {
+                                                    "type": "string"
+                                                },
+                                                "clickToChange": {
+                                                    "type": "string"
+                                                },
+                                                "markedAsPresent": {
+                                                    "type": "string"
+                                                },
+                                                "markedAsAbsent": {
+                                                    "type": "string"
+                                                },
+                                                "absenceInToday": {
+                                                    "type": "string"
+                                                },
+                                                "absenceAwayToday": {
+                                                    "type": "string"
+                                                },
+                                                "absenceAwayTodayLocked": {
+                                                    "type": "string"
+                                                },
+                                                "absenceInTomorrow": {
+                                                    "type": "string"
+                                                },
+                                                "absenceAwayTomorrow": {
+                                                    "type": "string"
+                                                },
+                                                "absenceAwayTomorrowLocked": {
+                                                    "type": "string"
+                                                },
+                                                "minutesLabel": {
+                                                    "type": "string"
+                                                },
+                                                "halfDaysCount": {
+                                                    "type": "string"
+                                                },
+                                                "pageCount": {
+                                                    "type": "string"
+                                                },
+                                                "returnToList": {
+                                                    "type": "string"
+                                                },
+                                                "prevItem": {
+                                                    "type": "string"
+                                                },
+                                                "nextItem": {
+                                                    "type": "string"
+                                                },
+                                                "apply": {
+                                                    "type": "string"
+                                                },
+                                                "clear": {
+                                                    "type": "string"
+                                                },
+                                                "save": {
+                                                    "type": "string"
+                                                },
+                                                "edit": {
+                                                    "type": "string"
+                                                },
+                                                "commentPlaceHolder": {
+                                                    "type": "string"
+                                                },
+                                                "details": {
+                                                    "type": "string"
+                                                },
+                                                "reportAbsence": {
+                                                    "type": "string"
+                                                },
+                                                "absenceReported": {
+                                                    "type": "string"
+                                                },
+                                                "reportedAbsent": {
+                                                    "type": "string"
+                                                },
+                                                "reportAbsenceBannerMessage": {
+                                                    "type": "string"
+                                                },
+                                                "reportAbsenceSubmitAbsence": {
+                                                    "type": "string"
+                                                },
+                                                "reportNewAbsence": {
+                                                    "type": "string"
+                                                },
+                                                "reportAbsenceApproved": {
+                                                    "type": "string"
+                                                },
+                                                "reportAbsencePending": {
+                                                    "type": "string"
+                                                },
+                                                "reportAbsenceAdvisoryTextPupil": {
+                                                    "type": "string"
+                                                },
+                                                "allDay": {
+                                                    "type": "string"
+                                                },
+                                                "reportAbsencePanelTitle": {
+                                                    "type": "string"
+                                                },
+                                                "reportSicknessLeave": {
+                                                    "type": "string"
+                                                },
+                                                "attendaceAlreadyRecorded": {
+                                                    "type": "string"
+                                                },
+                                                "pastAttendance": {
+                                                    "type": "string"
+                                                },
+                                                "pastAttendances": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestPanelTitle": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestRequestLeave": {
+                                                    "type": "string"
+                                                },
+                                                "commonPending": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestApprovedStatus": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestRejectedStatus": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDateFrom": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDateTo": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestTimeFrom": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestTimeTo": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDetailsPattern": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeleteButtonText": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestRequiredFieldsText": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeleteDialogTitle": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeleteDialogText": {
+                                                    "type": "string"
+                                                },
+                                                "commonCancel": {
+                                                    "type": "string"
+                                                },
+                                                "commonDelete": {
+                                                    "type": "string"
+                                                },
+                                                "commonNoResultsText": {
+                                                    "type": "string"
+                                                },
+                                                "commonSelectableListOfTimes": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestSubmitRequest": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestValidationMustFillBothTimesOrNeither": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestValidationToMustBeAfterFrom": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestSummaryDialogTitle": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestRequestDetails": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDateFromTo": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestApplicationSubmittedBy": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestStatus": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestApprovalDetails": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeniedDetails": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestApprovedBy": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeniedBy": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestNotes": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeniedStatus": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeleteNotAllowedText": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeleteNotAllowedWhenApprovedDeniedText": {
+                                                    "type": "string"
+                                                },
+                                                "commonExpired": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestOnlyOneGuardianRegistered": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestMustBeApprovedSecondaryGuardianNotificationWillBeSend": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestOnceYouSubmitItWillPending": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestAwaitingSecondaryApproval": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestAwaitingSchoolDecision": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDeniedBySecondaryGuardian": {
+                                                    "type": "string"
+                                                },
+                                                "commonDeniedByYou": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestApprove": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestOnlySubmitterCanRemove": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestAwaitingYourApproval": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestExpiredNoActionTaken": {
+                                                    "type": "string"
+                                                },
+                                                "leaveRequestDenyRequest": {
+                                                    "type": "string"
+                                                },
+                                                "reportAbsenceAdvisoryText": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "urls": {
+                                            "type": "object",
+                                            "properties": {
+                                                "registerAttendance": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "registerSessionAttendance": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "saveAbsenceComment": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "createLeaveRequest": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "getLeaveRequestList": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "deleteLeaveRequest": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "setSecondaryStatus": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
