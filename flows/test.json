@@ -1,0 +1,2979 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "flows Mitmproxy2Swagger",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://hub.infomentor.se",
+      "description": "The default server"
+    }
+  ],
+  "paths": {
+    "/authentication/authentication/isauthenticated/": {
+      "post": {
+        "summary": "POST isauthenticated",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/NotificationApp/NotificationApp/appData": {
+      "post": {
+        "summary": "POST appdata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "notifications": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "subTitle": {
+                            "type": "string"
+                          },
+                          "subjectsCourses": {
+                            "type": "string"
+                          },
+                          "dateSent": {
+                            "type": "string"
+                          },
+                          "appType": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "orderDate": {
+                            "type": "string"
+                          },
+                          "pupilIM2Id": {
+                            "type": "number"
+                          },
+                          "pupilSourceId": {
+                            "type": "string"
+                          },
+                          "currentlySelectedPupil": {
+                            "type": "number"
+                          },
+                          "entityTypeString": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    },
+                    "translations": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "notificationsCleared": {
+                          "type": "string"
+                        },
+                        "noNotifications": {
+                          "type": "string"
+                        },
+                        "pupilName": {
+                          "type": "string"
+                        },
+                        "clearList": {
+                          "type": "string"
+                        },
+                        "undo": {
+                          "type": "string"
+                        },
+                        "timeFormatJustNow": {
+                          "type": "string"
+                        },
+                        "timeFormatMinutes": {
+                          "type": "string"
+                        },
+                        "timeFormatHours": {
+                          "type": "string"
+                        },
+                        "timeFormatYesterday": {
+                          "type": "string"
+                        },
+                        "new": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "urls": {
+                      "type": "object",
+                      "properties": {
+                        "getAppNotifications": {
+                          "type": "string"
+                        },
+                        "updateState": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/NotificationApp/NotificationApp/GetNotifications": {
+      "post": {
+        "summary": "POST getnotifications",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "notifications": {
+                      "type": "array",
+                      "items": {}
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "timestamp": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/calendarv2/calendarv2/appData": {
+      "post": {
+        "summary": "POST appdata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "todayDate": {
+                      "type": "string"
+                    },
+                    "calendarEntryTypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "colour": {
+                            "type": "string"
+                          },
+                          "className": {
+                            "type": "string"
+                          },
+                          "isCustomType": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "hasCustomSchoolLogo": {
+                      "type": "number"
+                    },
+                    "translations": {
+                      "type": "object",
+                      "properties": {
+                        "wholeWeek": {
+                          "type": "string"
+                        },
+                        "week": {
+                          "type": "string"
+                        },
+                        "events": {
+                          "type": "string"
+                        },
+                        "mondayAbbrv": {
+                          "type": "string"
+                        },
+                        "tuesdayAbbrv": {
+                          "type": "string"
+                        },
+                        "wednesdayAbbrv": {
+                          "type": "string"
+                        },
+                        "thursdayAbbrv": {
+                          "type": "string"
+                        },
+                        "fridayAbbrv": {
+                          "type": "string"
+                        },
+                        "saturdayAbbrv": {
+                          "type": "string"
+                        },
+                        "sundayAbbrv": {
+                          "type": "string"
+                        },
+                        "noResultsDay": {
+                          "type": "string"
+                        },
+                        "noResultsWeek": {
+                          "type": "string"
+                        },
+                        "clickToOpenSurvey": {
+                          "type": "string"
+                        },
+                        "clickToOpenTask": {
+                          "type": "string"
+                        },
+                        "file": {
+                          "type": "string"
+                        },
+                        "downloadAttachment": {
+                          "type": "string"
+                        },
+                        "jumpToWeek": {
+                          "type": "string"
+                        },
+                        "nextWeek": {
+                          "type": "string"
+                        },
+                        "lastWeek": {
+                          "type": "string"
+                        },
+                        "exportCalendar": {
+                          "type": "string"
+                        },
+                        "exportSubscriptionText": {
+                          "type": "string"
+                        },
+                        "subscribe": {
+                          "type": "string"
+                        },
+                        "exportCopyUrlText": {
+                          "type": "string"
+                        },
+                        "copyUrlToClipboard": {
+                          "type": "string"
+                        },
+                        "print": {
+                          "type": "string"
+                        },
+                        "printDate": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "urls": {
+                      "type": "object",
+                      "properties": {
+                        "getEntries": {
+                          "type": "string"
+                        },
+                        "getAttachments": {
+                          "type": "string"
+                        },
+                        "exportCalendar": {
+                          "type": "string"
+                        },
+                        "getEstablishmentLogo": {
+                          "type": "string"
+                        },
+                        "getIcalSubscriptionUri": {
+                          "type": "string"
+                        },
+                        "getO365EventDescription": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/calendarv2/calendarv2/getentries": {
+      "post": {
+        "summary": "POST getentries",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "o365EventId": {
+                        "type": "object"
+                      },
+                      "googleEventId": {
+                        "type": "object"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      },
+                      "calendarEntryTypeId": {
+                        "type": "number"
+                      },
+                      "isAllDayEvent": {
+                        "type": "number"
+                      },
+                      "startDateFull": {
+                        "type": "string"
+                      },
+                      "endDateFull": {
+                        "type": "string"
+                      },
+                      "startDate": {
+                        "type": "string"
+                      },
+                      "endDate": {
+                        "type": "string"
+                      },
+                      "formattedStartDate": {
+                        "type": "string"
+                      },
+                      "formattedEndDate": {
+                        "type": "string"
+                      },
+                      "startTime": {
+                        "type": "string"
+                      },
+                      "endTime": {
+                        "type": "string"
+                      },
+                      "hasAttachments": {
+                        "type": "number"
+                      },
+                      "subjects": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "courses": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "url": {
+                        "type": "object"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "startDate": {
+                    "type": "string"
+                  },
+                  "endDate": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/timetable/timetable/appData": {
+      "post": {
+        "summary": "POST appdata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "maxDate": {
+                      "type": "string"
+                    },
+                    "minDate": {
+                      "type": "string"
+                    },
+                    "startingHour": {
+                      "type": "string"
+                    },
+                    "numberOfDays": {
+                      "type": "number"
+                    },
+                    "endingHour": {
+                      "type": "string"
+                    },
+                    "translations": {
+                      "type": "object",
+                      "properties": {
+                        "informationFrom": {
+                          "type": "string"
+                        },
+                        "notes": {
+                          "type": "string"
+                        },
+                        "room": {
+                          "type": "string"
+                        },
+                        "additionalInformation": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "type": "string"
+                        },
+                        "lessonTitle": {
+                          "type": "string"
+                        },
+                        "lessonInformation": {
+                          "type": "string"
+                        },
+                        "jumpToDate": {
+                          "type": "string"
+                        },
+                        "tutors": {
+                          "type": "string"
+                        },
+                        "printHeader": {
+                          "type": "object"
+                        },
+                        "gotoToday": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "start": {
+                            "type": "string"
+                          },
+                          "end": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "startTime": {
+                            "type": "string"
+                          },
+                          "endTime": {
+                            "type": "string"
+                          },
+                          "notes": {
+                            "type": "object",
+                            "properties": {
+                              "roomInfo": {
+                                "type": "string"
+                              },
+                              "timetableNotes": {
+                                "type": "string"
+                              },
+                              "tutors": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "allDay": {
+                            "type": "number"
+                          },
+                          "establishmentName": {
+                            "type": "object"
+                          },
+                          "details": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "shortDatePattern": {
+                      "type": "string"
+                    },
+                    "appendRoomNameToTitle": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/timetable/timetable/gettimetablelist": {
+      "post": {
+        "summary": "POST gettimetablelist",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "string"
+                      },
+                      "end": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "startTime": {
+                        "type": "string"
+                      },
+                      "endTime": {
+                        "type": "string"
+                      },
+                      "notes": {
+                        "type": "object",
+                        "properties": {
+                          "roomInfo": {
+                            "type": "string"
+                          },
+                          "timetableNotes": {
+                            "type": "string"
+                          },
+                          "tutors": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "allDay": {
+                        "type": "number"
+                      },
+                      "establishmentName": {
+                        "type": "object"
+                      },
+                      "details": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UTCOffset": {
+                    "type": "string"
+                  },
+                  "start": {
+                    "type": "string"
+                  },
+                  "end": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attendance/attendance/appData": {
+      "post": {
+        "summary": "POST appdata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pagedList": {
+                      "type": "object",
+                      "properties": {
+                        "translations": {
+                          "type": "object",
+                          "properties": {
+                            "listTitle": {
+                              "type": "string"
+                            },
+                            "paging": {
+                              "type": "string"
+                            },
+                            "filter": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "headers": {
+                          "type": "object",
+                          "properties": {
+                            "date": {
+                              "type": "object",
+                              "properties": {
+                                "displayText": {
+                                  "type": "string"
+                                },
+                                "isSortable": {
+                                  "type": "number"
+                                },
+                                "sortField": {
+                                  "type": "string"
+                                },
+                                "sortBy": {
+                                  "type": "number"
+                                },
+                                "sortDesc": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "time": {
+                              "type": "object",
+                              "properties": {
+                                "displayText": {
+                                  "type": "string"
+                                },
+                                "isSortable": {
+                                  "type": "number"
+                                },
+                                "sortField": {
+                                  "type": "string"
+                                },
+                                "sortBy": {
+                                  "type": "number"
+                                },
+                                "sortDesc": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "subject": {
+                              "type": "object",
+                              "properties": {
+                                "displayText": {
+                                  "type": "string"
+                                },
+                                "isSortable": {
+                                  "type": "number"
+                                },
+                                "sortField": {
+                                  "type": "string"
+                                },
+                                "sortBy": {
+                                  "type": "number"
+                                },
+                                "sortDesc": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "reason": {
+                              "type": "object",
+                              "properties": {
+                                "displayText": {
+                                  "type": "string"
+                                },
+                                "isSortable": {
+                                  "type": "number"
+                                },
+                                "sortField": {
+                                  "type": "string"
+                                },
+                                "sortBy": {
+                                  "type": "number"
+                                },
+                                "sortDesc": {
+                                  "type": "number"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "filters": {
+                          "type": "object",
+                          "properties": {
+                            "translations": {
+                              "type": "object",
+                              "properties": {
+                                "apply": {
+                                  "type": "string"
+                                },
+                                "clear": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "filters": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "defaultText": {
+                                    "type": "string"
+                                  },
+                                  "options": {
+                                    "type": "array",
+                                    "items": {}
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "displayName": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "listUrl": {
+                          "type": "string"
+                        },
+                        "itemUrl": {
+                          "type": "object"
+                        },
+                        "page": {
+                          "type": "number"
+                        },
+                        "pageSize": {
+                          "type": "number"
+                        },
+                        "totalItems": {
+                          "type": "number"
+                        },
+                        "items": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "allItemIds": {
+                          "type": "object"
+                        },
+                        "more": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "leaveRequests": {
+                      "type": "array",
+                      "items": {}
+                    },
+                    "absenceTodaySessions": {
+                      "type": "array",
+                      "items": {}
+                    },
+                    "absenceTomorrowSessions": {
+                      "type": "array",
+                      "items": {}
+                    },
+                    "autoConfirmAbsence": {
+                      "type": "number"
+                    },
+                    "absentToday": {
+                      "type": "number"
+                    },
+                    "absenceTodayComment": {
+                      "type": "object"
+                    },
+                    "absentTomorrow": {
+                      "type": "number"
+                    },
+                    "absenceTomorrowComment": {
+                      "type": "object"
+                    },
+                    "absenceTodayLocked": {
+                      "type": "number"
+                    },
+                    "absenceTomorrowLocked": {
+                      "type": "number"
+                    },
+                    "canRegisterDayAbsence": {
+                      "type": "number"
+                    },
+                    "canRegisterSessionAbsence": {
+                      "type": "number"
+                    },
+                    "isIcelandic": {
+                      "type": "number"
+                    },
+                    "canRegisterSession": {
+                      "type": "number"
+                    },
+                    "showSubjects": {
+                      "type": "number"
+                    },
+                    "showComment": {
+                      "type": "number"
+                    },
+                    "showFilter": {
+                      "type": "number"
+                    },
+                    "isPlaySchool": {
+                      "type": "number"
+                    },
+                    "absenceTodayDate": {
+                      "type": "string"
+                    },
+                    "absenceTomorrowDate": {
+                      "type": "string"
+                    },
+                    "canAddSicknessToday": {
+                      "type": "number"
+                    },
+                    "canAddSicknessTomorrow": {
+                      "type": "number"
+                    },
+                    "isParent": {
+                      "type": "number"
+                    },
+                    "hasLeaveLicence": {
+                      "type": "number"
+                    },
+                    "canRequestLeave": {
+                      "type": "number"
+                    },
+                    "hasLeaveTwoGuardiansLicence": {
+                      "type": "number"
+                    },
+                    "isOnlyOneGuardianRegistered": {
+                      "type": "number"
+                    },
+                    "isOver18Pupil": {
+                      "type": "number"
+                    },
+                    "translations": {
+                      "type": "object",
+                      "properties": {
+                        "reportSickness": {
+                          "type": "string"
+                        },
+                        "absenceReport": {
+                          "type": "string"
+                        },
+                        "registrationDetails": {
+                          "type": "string"
+                        },
+                        "dateLabel": {
+                          "type": "string"
+                        },
+                        "timeLabel": {
+                          "type": "string"
+                        },
+                        "subjectLabel": {
+                          "type": "string"
+                        },
+                        "reasonLabel": {
+                          "type": "string"
+                        },
+                        "registeredByLabel": {
+                          "type": "string"
+                        },
+                        "fromLabel": {
+                          "type": "string"
+                        },
+                        "comments": {
+                          "type": "string"
+                        },
+                        "today": {
+                          "type": "string"
+                        },
+                        "tomorrow": {
+                          "type": "string"
+                        },
+                        "dateToday": {
+                          "type": "string"
+                        },
+                        "dateTomorrow": {
+                          "type": "string"
+                        },
+                        "clickToChange": {
+                          "type": "string"
+                        },
+                        "markedAsPresent": {
+                          "type": "string"
+                        },
+                        "markedAsAbsent": {
+                          "type": "string"
+                        },
+                        "absenceInToday": {
+                          "type": "string"
+                        },
+                        "absenceAwayToday": {
+                          "type": "string"
+                        },
+                        "absenceAwayTodayLocked": {
+                          "type": "string"
+                        },
+                        "absenceInTomorrow": {
+                          "type": "string"
+                        },
+                        "absenceAwayTomorrow": {
+                          "type": "string"
+                        },
+                        "absenceAwayTomorrowLocked": {
+                          "type": "string"
+                        },
+                        "minutesLabel": {
+                          "type": "string"
+                        },
+                        "halfDaysCount": {
+                          "type": "string"
+                        },
+                        "pageCount": {
+                          "type": "string"
+                        },
+                        "returnToList": {
+                          "type": "string"
+                        },
+                        "prevItem": {
+                          "type": "string"
+                        },
+                        "nextItem": {
+                          "type": "string"
+                        },
+                        "apply": {
+                          "type": "string"
+                        },
+                        "clear": {
+                          "type": "string"
+                        },
+                        "save": {
+                          "type": "string"
+                        },
+                        "edit": {
+                          "type": "string"
+                        },
+                        "commentPlaceHolder": {
+                          "type": "string"
+                        },
+                        "details": {
+                          "type": "string"
+                        },
+                        "reportAbsence": {
+                          "type": "string"
+                        },
+                        "absenceReported": {
+                          "type": "string"
+                        },
+                        "reportedAbsent": {
+                          "type": "string"
+                        },
+                        "reportAbsenceBannerMessage": {
+                          "type": "string"
+                        },
+                        "reportAbsenceSubmitAbsence": {
+                          "type": "string"
+                        },
+                        "reportNewAbsence": {
+                          "type": "string"
+                        },
+                        "reportAbsenceApproved": {
+                          "type": "string"
+                        },
+                        "reportAbsencePending": {
+                          "type": "string"
+                        },
+                        "reportAbsenceAdvisoryTextPupil": {
+                          "type": "string"
+                        },
+                        "allDay": {
+                          "type": "string"
+                        },
+                        "reportAbsencePanelTitle": {
+                          "type": "string"
+                        },
+                        "reportSicknessLeave": {
+                          "type": "string"
+                        },
+                        "attendaceAlreadyRecorded": {
+                          "type": "string"
+                        },
+                        "pastAttendance": {
+                          "type": "string"
+                        },
+                        "pastAttendances": {
+                          "type": "string"
+                        },
+                        "leaveRequestPanelTitle": {
+                          "type": "string"
+                        },
+                        "leaveRequestRequestLeave": {
+                          "type": "string"
+                        },
+                        "commonPending": {
+                          "type": "string"
+                        },
+                        "leaveRequestApprovedStatus": {
+                          "type": "string"
+                        },
+                        "leaveRequestRejectedStatus": {
+                          "type": "string"
+                        },
+                        "leaveRequestDateFrom": {
+                          "type": "string"
+                        },
+                        "leaveRequestDateTo": {
+                          "type": "string"
+                        },
+                        "leaveRequestTimeFrom": {
+                          "type": "string"
+                        },
+                        "leaveRequestTimeTo": {
+                          "type": "string"
+                        },
+                        "leaveRequestDetailsPattern": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeleteButtonText": {
+                          "type": "string"
+                        },
+                        "leaveRequestRequiredFieldsText": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeleteDialogTitle": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeleteDialogText": {
+                          "type": "string"
+                        },
+                        "commonCancel": {
+                          "type": "string"
+                        },
+                        "commonDelete": {
+                          "type": "string"
+                        },
+                        "commonNoResultsText": {
+                          "type": "string"
+                        },
+                        "commonSelectableListOfTimes": {
+                          "type": "string"
+                        },
+                        "leaveRequestSubmitRequest": {
+                          "type": "string"
+                        },
+                        "leaveRequestValidationMustFillBothTimesOrNeither": {
+                          "type": "string"
+                        },
+                        "leaveRequestValidationToMustBeAfterFrom": {
+                          "type": "string"
+                        },
+                        "leaveRequestSummaryDialogTitle": {
+                          "type": "string"
+                        },
+                        "leaveRequestRequestDetails": {
+                          "type": "string"
+                        },
+                        "leaveRequestDateFromTo": {
+                          "type": "string"
+                        },
+                        "leaveRequestApplicationSubmittedBy": {
+                          "type": "string"
+                        },
+                        "leaveRequestStatus": {
+                          "type": "string"
+                        },
+                        "leaveRequestApprovalDetails": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeniedDetails": {
+                          "type": "string"
+                        },
+                        "leaveRequestApprovedBy": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeniedBy": {
+                          "type": "string"
+                        },
+                        "leaveRequestNotes": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeniedStatus": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeleteNotAllowedText": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeleteNotAllowedWhenApprovedDeniedText": {
+                          "type": "string"
+                        },
+                        "commonExpired": {
+                          "type": "string"
+                        },
+                        "leaveRequestOnlyOneGuardianRegistered": {
+                          "type": "string"
+                        },
+                        "leaveRequestMustBeApprovedSecondaryGuardianNotificationWillBeSend": {
+                          "type": "string"
+                        },
+                        "leaveRequestOnceYouSubmitItWillPending": {
+                          "type": "string"
+                        },
+                        "leaveRequestAwaitingSecondaryApproval": {
+                          "type": "string"
+                        },
+                        "leaveRequestAwaitingSchoolDecision": {
+                          "type": "string"
+                        },
+                        "leaveRequestDeniedBySecondaryGuardian": {
+                          "type": "string"
+                        },
+                        "commonDeniedByYou": {
+                          "type": "string"
+                        },
+                        "leaveRequestApprove": {
+                          "type": "string"
+                        },
+                        "leaveRequestOnlySubmitterCanRemove": {
+                          "type": "string"
+                        },
+                        "leaveRequestAwaitingYourApproval": {
+                          "type": "string"
+                        },
+                        "leaveRequestExpiredNoActionTaken": {
+                          "type": "string"
+                        },
+                        "leaveRequestDenyRequest": {
+                          "type": "string"
+                        },
+                        "reportAbsenceAdvisoryText": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "urls": {
+                      "type": "object",
+                      "properties": {
+                        "registerAttendance": {
+                          "type": "string"
+                        },
+                        "registerSessionAttendance": {
+                          "type": "string"
+                        },
+                        "saveAbsenceComment": {
+                          "type": "string"
+                        },
+                        "createLeaveRequest": {
+                          "type": "string"
+                        },
+                        "getLeaveRequestList": {
+                          "type": "string"
+                        },
+                        "deleteLeaveRequest": {
+                          "type": "string"
+                        },
+                        "setSecondaryStatus": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/attendance/attendance/GetLeaveRequestList": {
+      "post": {
+        "summary": "POST getleaverequestlist",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documentation/documentation/appData": {
+      "post": {
+        "summary": "POST appdata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tabs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "thirdSecurityInitData": {
+                      "type": "object"
+                    },
+                    "isGuardian": {
+                      "type": "number"
+                    },
+                    "loggedInUserIM2Id": {
+                      "type": "number"
+                    },
+                    "translations": {
+                      "type": "object",
+                      "properties": {
+                        "documentation": {
+                          "type": "string"
+                        },
+                        "documentationTypeTabs": {
+                          "type": "string"
+                        },
+                        "journal": {
+                          "type": "string"
+                        },
+                        "journalNoResults": {
+                          "type": "string"
+                        },
+                        "on": {
+                          "type": "string"
+                        },
+                        "by": {
+                          "type": "string"
+                        },
+                        "journalEntry": {
+                          "type": "string"
+                        },
+                        "iup": {
+                          "type": "string"
+                        },
+                        "term": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "current": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "inProgress": {
+                          "type": "string"
+                        },
+                        "complete": {
+                          "type": "string"
+                        },
+                        "iupNoResults": {
+                          "type": "string"
+                        },
+                        "more": {
+                          "type": "string"
+                        },
+                        "portfolio": {
+                          "type": "string"
+                        },
+                        "portfolioNoResults": {
+                          "type": "string"
+                        },
+                        "specialPlan": {
+                          "type": "string"
+                        },
+                        "specialPlanNoResults": {
+                          "type": "string"
+                        },
+                        "onGoing": {
+                          "type": "string"
+                        },
+                        "finished": {
+                          "type": "string"
+                        },
+                        "createdBy": {
+                          "type": "string"
+                        },
+                        "lastEditedBy": {
+                          "type": "string"
+                        },
+                        "finishedBy": {
+                          "type": "string"
+                        },
+                        "attachments": {
+                          "type": "string"
+                        },
+                        "file": {
+                          "type": "string"
+                        },
+                        "download": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "urls": {
+                      "type": "object",
+                      "properties": {
+                        "getJournalList": {
+                          "type": "string"
+                        },
+                        "getPupilIUPFilter": {
+                          "type": "string"
+                        },
+                        "getPupilIUPData": {
+                          "type": "string"
+                        },
+                        "portfolioAppData": {
+                          "type": "string"
+                        },
+                        "getSpecialPlan": {
+                          "type": "string"
+                        },
+                        "getSpecialPlanVersion": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/Documentation/Journal/GetJournalList": {
+      "post": {
+        "summary": "POST getjournallist",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "entries": {
+                      "type": "array",
+                      "items": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pageSize": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assessmentv2/assessmentv2/appData": {
+      "post": {
+        "summary": "POST appdata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "navigationModel": {
+                      "type": "object",
+                      "properties": {
+                        "uolItemsList": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "gridItemsList": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "selfAssessmentItemsList": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "navigationItemsList": {
+                          "type": "array",
+                          "items": {}
+                        }
+                      }
+                    },
+                    "thirdSecurityInitData": {
+                      "type": "object"
+                    },
+                    "isImpersonator": {
+                      "type": "number"
+                    },
+                    "academicYearItems": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "selected": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "enableGradeReport": {
+                      "type": "number"
+                    },
+                    "gradeReportTerms": {
+                      "type": "object"
+                    },
+                    "summaryAssessmentTerms": {
+                      "type": "array",
+                      "items": {}
+                    },
+                    "summaryAssessmentTermsLgr22": {
+                      "type": "array",
+                      "items": {}
+                    },
+                    "enableSummaryAssessment": {
+                      "type": "number"
+                    },
+                    "enableSummaryAssessmentLgr22": {
+                      "type": "number"
+                    },
+                    "isGymnasium": {
+                      "type": "number"
+                    },
+                    "translations": {
+                      "type": "object",
+                      "properties": {
+                        "newFlag": {
+                          "type": "string"
+                        },
+                        "noAssessmentsExist": {
+                          "type": "string"
+                        },
+                        "newAssessmentsInOtherFilters": {
+                          "type": "string"
+                        },
+                        "newAssessmentInOtherFilters": {
+                          "type": "string"
+                        },
+                        "noAssessmentsForDateRange": {
+                          "type": "string"
+                        },
+                        "lblCurriculum": {
+                          "type": "string"
+                        },
+                        "lblUOL": {
+                          "type": "string"
+                        },
+                        "lblAssignments": {
+                          "type": "string"
+                        },
+                        "lblLearningSteps": {
+                          "type": "string"
+                        },
+                        "lblEvidence": {
+                          "type": "string"
+                        },
+                        "lblNoEvidence": {
+                          "type": "string"
+                        },
+                        "lblComments": {
+                          "type": "string"
+                        },
+                        "lblNoComments": {
+                          "type": "string"
+                        },
+                        "lblProgress": {
+                          "type": "string"
+                        },
+                        "lblAllUpdates": {
+                          "type": "string"
+                        },
+                        "lblCompleteList": {
+                          "type": "string"
+                        },
+                        "lblSummaryStatements": {
+                          "type": "string"
+                        },
+                        "lblCurriculumStatements": {
+                          "type": "string"
+                        },
+                        "lblSummaryStatement": {
+                          "type": "string"
+                        },
+                        "lblCurriculumStatement": {
+                          "type": "string"
+                        },
+                        "lblPageCount": {
+                          "type": "string"
+                        },
+                        "lblNextItem": {
+                          "type": "string"
+                        },
+                        "lblPreviousItem": {
+                          "type": "string"
+                        },
+                        "lblAssessments": {
+                          "type": "string"
+                        },
+                        "lblLoading": {
+                          "type": "string"
+                        },
+                        "lblCommentOnly": {
+                          "type": "string"
+                        },
+                        "lblNotAvailableOnMobile": {
+                          "type": "string"
+                        },
+                        "lblNoDesc": {
+                          "type": "string"
+                        },
+                        "lblSubjects": {
+                          "type": "string"
+                        },
+                        "lblUnits": {
+                          "type": "string"
+                        },
+                        "lblShowCompleteCurriculum": {
+                          "type": "string"
+                        },
+                        "lblShowAllStatements": {
+                          "type": "string"
+                        },
+                        "lblNoStatements": {
+                          "type": "string"
+                        },
+                        "noAssessmentsInYear": {
+                          "type": "string"
+                        },
+                        "lblSelfAssessment": {
+                          "type": "string"
+                        },
+                        "showTeacherMarks": {
+                          "type": "string"
+                        },
+                        "hideTeacherMarks": {
+                          "type": "string"
+                        },
+                        "enterNewComment": {
+                          "type": "string"
+                        },
+                        "add": {
+                          "type": "string"
+                        },
+                        "delete": {
+                          "type": "string"
+                        },
+                        "edit": {
+                          "type": "string"
+                        },
+                        "update": {
+                          "type": "string"
+                        },
+                        "cancel": {
+                          "type": "string"
+                        },
+                        "confirmLeave": {
+                          "type": "string"
+                        },
+                        "leave": {
+                          "type": "string"
+                        },
+                        "stay": {
+                          "type": "string"
+                        },
+                        "updateAssessment": {
+                          "type": "string"
+                        },
+                        "assessmentSaved": {
+                          "type": "string"
+                        },
+                        "enterMark": {
+                          "type": "string"
+                        },
+                        "confirmDeleteComment": {
+                          "type": "string"
+                        },
+                        "invalidMark": {
+                          "type": "string"
+                        },
+                        "invalidMarkOption": {
+                          "type": "string"
+                        },
+                        "academicYear": {
+                          "type": "string"
+                        },
+                        "assessments": {
+                          "type": "string"
+                        },
+                        "assessmentReports": {
+                          "type": "string"
+                        },
+                        "compactOverview": {
+                          "type": "string"
+                        },
+                        "courses": {
+                          "type": "string"
+                        },
+                        "currentAcademicYear": {
+                          "type": "string"
+                        },
+                        "detailedView": {
+                          "type": "string"
+                        },
+                        "download": {
+                          "type": "string"
+                        },
+                        "graphicalOverview": {
+                          "type": "string"
+                        },
+                        "graphicalOverviewAndCurriculumStatements": {
+                          "type": "string"
+                        },
+                        "or": {
+                          "type": "string"
+                        },
+                        "reports": {
+                          "type": "string"
+                        },
+                        "reportType": {
+                          "type": "string"
+                        },
+                        "multiSelectSelection": {
+                          "type": "string"
+                        },
+                        "multiSelectAllItems": {
+                          "type": "string"
+                        },
+                        "noResults": {
+                          "type": "string"
+                        },
+                        "selectAll": {
+                          "type": "string"
+                        },
+                        "selectASubject": {
+                          "type": "string"
+                        },
+                        "selectACourse": {
+                          "type": "string"
+                        },
+                        "generalCommentsDialogTitle": {
+                          "type": "string"
+                        },
+                        "mainTabSummaryAssessmentLGR11": {
+                          "type": "string"
+                        },
+                        "mainTabSummaryAssessmentLGR22": {
+                          "type": "string"
+                        },
+                        "mainTabGrades": {
+                          "type": "string"
+                        },
+                        "mainTabAssessment": {
+                          "type": "string"
+                        },
+                        "summaryAssessment": {
+                          "type": "string"
+                        },
+                        "subjects": {
+                          "type": "string"
+                        },
+                        "comments": {
+                          "type": "string"
+                        },
+                        "back": {
+                          "type": "string"
+                        },
+                        "noSummaryAssessments": {
+                          "type": "string"
+                        },
+                        "schoolActions": {
+                          "type": "string"
+                        },
+                        "lblGroupedSummaryStatements": {
+                          "type": "string"
+                        },
+                        "summaryAssessmentsLgr22_pageTitle": {
+                          "type": "string"
+                        },
+                        "summaryAssessmentsLgr22_noResults": {
+                          "type": "string"
+                        },
+                        "tableHeading_Subject": {
+                          "type": "string"
+                        },
+                        "tableHeading_NotReached": {
+                          "type": "string"
+                        },
+                        "tableHeading_Expected": {
+                          "type": "string"
+                        },
+                        "tableHeading_Exceeding": {
+                          "type": "string"
+                        },
+                        "dialogTitleLGR22": {
+                          "type": "string"
+                        },
+                        "levelSelectorLabel": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "urls": {
+                      "type": "object",
+                      "properties": {
+                        "getReportsDialog": {
+                          "type": "string"
+                        },
+                        "downloadReport": {
+                          "type": "string"
+                        },
+                        "getNavigationData": {
+                          "type": "string"
+                        },
+                        "getGridItems": {
+                          "type": "string"
+                        },
+                        "getGridDialog": {
+                          "type": "string"
+                        },
+                        "getGeneralComments": {
+                          "type": "string"
+                        },
+                        "getComments": {
+                          "type": "string"
+                        },
+                        "getUolItems": {
+                          "type": "string"
+                        },
+                        "getUolDialog": {
+                          "type": "string"
+                        },
+                        "getUolGeneralComments": {
+                          "type": "string"
+                        },
+                        "getTaskItems": {
+                          "type": "string"
+                        },
+                        "getTaskDialog": {
+                          "type": "string"
+                        },
+                        "getLearningStepItems": {
+                          "type": "string"
+                        },
+                        "getLearningStepDialog": {
+                          "type": "string"
+                        },
+                        "getSelfAssessmentItems": {
+                          "type": "string"
+                        },
+                        "getSelfAssessmentDialog": {
+                          "type": "string"
+                        },
+                        "saveMark": {
+                          "type": "string"
+                        },
+                        "saveComment": {
+                          "type": "string"
+                        },
+                        "deleteComment": {
+                          "type": "string"
+                        },
+                        "updateSelfAssessment": {
+                          "type": "string"
+                        },
+                        "updateNotificationState": {
+                          "type": "string"
+                        },
+                        "getSummaryAssessments": {
+                          "type": "string"
+                        },
+                        "getSummaryAssessmentsLgr22": {
+                          "type": "string"
+                        },
+                        "getSummaryAssessmentsForGym": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "codename",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tab",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/communication/communication/appData": {
+      "post": {
+        "summary": "POST appdata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hasNewsAccess": {
+                      "type": "number"
+                    },
+                    "thirdSecurityInitData": {
+                      "type": "object"
+                    },
+                    "linkTypeFilters": {
+                      "type": "object",
+                      "properties": {
+                        "1008": {
+                          "type": "string"
+                        },
+                        "1010": {
+                          "type": "string"
+                        },
+                        "1013": {
+                          "type": "string"
+                        },
+                        "1015": {
+                          "type": "string"
+                        },
+                        "1017": {
+                          "type": "string"
+                        },
+                        "1032": {
+                          "type": "string"
+                        },
+                        "2077": {
+                          "type": "string"
+                        },
+                        "2078": {
+                          "type": "string"
+                        },
+                        "2079": {
+                          "type": "string"
+                        },
+                        "0": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "consentViewConfig": {
+                      "type": "object",
+                      "properties": {
+                        "hasConsentsAccess": {
+                          "type": "number"
+                        },
+                        "hasConsentWithoutBankIdLicense": {
+                          "type": "number"
+                        },
+                        "hasConsentWithBankIdLicense": {
+                          "type": "number"
+                        },
+                        "isLoggedInWithBankId": {
+                          "type": "number"
+                        },
+                        "pupilIM2Id": {
+                          "type": "number"
+                        },
+                        "parentIM2Id": {
+                          "type": "number"
+                        },
+                        "culture": {
+                          "type": "string"
+                        },
+                        "groupsIds": {
+                          "type": "string"
+                        },
+                        "countOfGuardians": {
+                          "type": "number"
+                        },
+                        "establishmentId": {
+                          "type": "number"
+                        },
+                        "translations": {
+                          "type": "object",
+                          "properties": {
+                            "consents": {
+                              "type": "string"
+                            },
+                            "consentsCurrent": {
+                              "type": "string"
+                            },
+                            "consentsPast": {
+                              "type": "string"
+                            },
+                            "consentsNoActiveMsg": {
+                              "type": "string"
+                            },
+                            "consentsNoExpiredMsg": {
+                              "type": "string"
+                            },
+                            "consentsGiveRefuse": {
+                              "type": "string"
+                            },
+                            "consentsIGiveConsent": {
+                              "type": "string"
+                            },
+                            "consentsConfirmation": {
+                              "type": "string"
+                            },
+                            "consentsConfirmationBankID": {
+                              "type": "string"
+                            },
+                            "consentsSignWithBankIDBtn": {
+                              "type": "string"
+                            },
+                            "consentsGiveBtn": {
+                              "type": "string"
+                            },
+                            "consentsRefuseBtn": {
+                              "type": "string"
+                            },
+                            "commonCancel": {
+                              "type": "string"
+                            },
+                            "commonClose": {
+                              "type": "string"
+                            },
+                            "commonStatus": {
+                              "type": "string"
+                            },
+                            "commonYes": {
+                              "type": "string"
+                            },
+                            "commonApproved": {
+                              "type": "string"
+                            },
+                            "consentsGiven": {
+                              "type": "string"
+                            },
+                            "consentsRefused": {
+                              "type": "string"
+                            },
+                            "consentForm": {
+                              "type": "string"
+                            },
+                            "consentsExpiredDate": {
+                              "type": "string"
+                            },
+                            "consentsExpiryDate": {
+                              "type": "string"
+                            },
+                            "consentsExpiredOn": {
+                              "type": "string"
+                            },
+                            "consentsExpiresOn": {
+                              "type": "string"
+                            },
+                            "consentsFailedToChangeConsent": {
+                              "type": "string"
+                            },
+                            "consentsExpiredWithoutDecision": {
+                              "type": "string"
+                            },
+                            "consentsAwaitingYourDecision": {
+                              "type": "string"
+                            },
+                            "consentsAwaitingAnotherDecision": {
+                              "type": "string"
+                            },
+                            "consentsRefuseConsent": {
+                              "type": "string"
+                            },
+                            "consentsConfirmRefuseConsentDescription": {
+                              "type": "string"
+                            },
+                            "refused": {
+                              "type": "string"
+                            },
+                            "noDecision": {
+                              "type": "string"
+                            },
+                            "consentsNoCurrentConsentsFound": {
+                              "type": "string"
+                            },
+                            "consentsNoPastConsentsFound": {
+                              "type": "string"
+                            },
+                            "commonEdit": {
+                              "type": "string"
+                            },
+                            "commonActions": {
+                              "type": "string"
+                            },
+                            "consentsProvideDecision": {
+                              "type": "string"
+                            },
+                            "consentsProvideConsentDecision": {
+                              "type": "string"
+                            },
+                            "approved": {
+                              "type": "string"
+                            },
+                            "partialApproved": {
+                              "type": "string"
+                            },
+                            "new": {
+                              "type": "string"
+                            },
+                            "expired": {
+                              "type": "string"
+                            },
+                            "consentsExpiredRequest": {
+                              "type": "string"
+                            },
+                            "consentsNoConsentRegistered": {
+                              "type": "string"
+                            },
+                            "consentsHalfRegistered": {
+                              "type": "string"
+                            },
+                            "noSelectResultsThatMatchInput": {
+                              "type": "string"
+                            },
+                            "communicationConsentsGiveWithBankID": {
+                              "type": "string"
+                            },
+                            "communicationConsentsRefuseWithBankID": {
+                              "type": "string"
+                            },
+                            "consentsBankIdSigningFailed": {
+                              "type": "string"
+                            },
+                            "consentsBankIdSigningInstructions": {
+                              "type": "string"
+                            },
+                            "consentsBankIdSigningComplete": {
+                              "type": "string"
+                            },
+                            "commonCloseTabThankYou": {
+                              "type": "string"
+                            },
+                            "commonCloseTabInstructions": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "urls": {
+                          "type": "object",
+                          "properties": {
+                            "getCurrentList": {
+                              "type": "string"
+                            },
+                            "getDetails": {
+                              "type": "string"
+                            },
+                            "createConsent": {
+                              "type": "string"
+                            },
+                            "simpleBankIdSign": {
+                              "type": "string"
+                            },
+                            "bankIdSign": {
+                              "type": "string"
+                            },
+                            "bankIdCollect": {
+                              "type": "string"
+                            },
+                            "grandIdSign": {
+                              "type": "string"
+                            },
+                            "grandIdCollect": {
+                              "type": "string"
+                            },
+                            "initializeBankIdSigning": {
+                              "type": "string"
+                            },
+                            "getBankIdSignStatus": {
+                              "type": "string"
+                            },
+                            "createResponseAfterBankIdSigning": {
+                              "type": "string"
+                            },
+                            "initializeGrandIdSigning": {
+                              "type": "string"
+                            },
+                            "getGrandIdSignStatus": {
+                              "type": "string"
+                            },
+                            "createResponseAfterGrandIdSigning": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "translations": {
+                      "type": "object",
+                      "properties": {
+                        "communication": {
+                          "type": "string"
+                        },
+                        "sort": {
+                          "type": "string"
+                        },
+                        "filterSearch": {
+                          "type": "string"
+                        },
+                        "filter": {
+                          "type": "string"
+                        },
+                        "more": {
+                          "type": "string"
+                        },
+                        "downloadAttachment": {
+                          "type": "string"
+                        },
+                        "dateAdded": {
+                          "type": "string"
+                        },
+                        "author": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "tags": {
+                          "type": "string"
+                        },
+                        "types": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "copy": {
+                          "type": "string"
+                        },
+                        "communicationTypeTabs": {
+                          "type": "string"
+                        },
+                        "news": {
+                          "type": "string"
+                        },
+                        "newsSearch": {
+                          "type": "string"
+                        },
+                        "newsNoResults": {
+                          "type": "string"
+                        },
+                        "newsErrorLoadingImage": {
+                          "type": "string"
+                        },
+                        "newsItemImage": {
+                          "type": "string"
+                        },
+                        "newsNoItemsToShow": {
+                          "type": "string"
+                        },
+                        "by": {
+                          "type": "string"
+                        },
+                        "on": {
+                          "type": "string"
+                        },
+                        "documents": {
+                          "type": "string"
+                        },
+                        "documentsNoItemsToShow": {
+                          "type": "string"
+                        },
+                        "links": {
+                          "type": "string"
+                        },
+                        "linksNoItemsToShow": {
+                          "type": "string"
+                        },
+                        "consents": {
+                          "type": "string"
+                        },
+                        "consentsPast": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "urls": {
+                      "type": "object",
+                      "properties": {
+                        "getNewsList": {
+                          "type": "string"
+                        },
+                        "getDocumentsList": {
+                          "type": "string"
+                        },
+                        "getLinksList": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/Communication/News/GetNewsList": {
+      "post": {
+        "summary": "POST getnewslist",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "content": {
+                            "type": "string"
+                          },
+                          "publishedDate": {
+                            "type": "string"
+                          },
+                          "publishedDateString": {
+                            "type": "string"
+                          },
+                          "publishedBy": {
+                            "type": "string"
+                          },
+                          "newsImageUrl": {
+                            "type": "string"
+                          },
+                          "newsThumbnailImageUrl": {
+                            "type": "string"
+                          },
+                          "attachments": {
+                            "type": "array",
+                            "items": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pageSize": {
+                    "type": "number"
+                  },
+                  "sortBy": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Communication/Documents/GetDocumentsList": {
+      "post": {
+        "summary": "POST getdocumentslist",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "totalItemCount": {
+                      "type": "number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "object"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "fileType": {
+                            "type": "string"
+                          },
+                          "fileSize": {
+                            "type": "number"
+                          },
+                          "fileUrl": {
+                            "type": "string"
+                          },
+                          "publishedDateString": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "typeIds": {
+                    "type": "string"
+                  },
+                  "sortBy": {
+                    "type": "string"
+                  },
+                  "page": {
+                    "type": "number"
+                  },
+                  "pageSize": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Resources/Resource/Download/{id}": {
+      "get": {
+        "summary": "GET download by id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "api",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ModuleType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ConnectionId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/Communication/Links/GetLinksList": {
+      "post": {
+        "summary": "POST getlinkslist",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "totalItemCount": {
+                      "type": "number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "object"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "publishedDate": {
+                            "type": "string"
+                          },
+                          "publishedDateString": {
+                            "type": "string"
+                          },
+                          "publishedBy": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "typeIds": {
+                    "type": "string"
+                  },
+                  "sortBy": {
+                    "type": "string"
+                  },
+                  "page": {
+                    "type": "number"
+                  },
+                  "pageSize": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/account/preferences/appData": {
+      "post": {
+        "summary": "POST appdata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "translations": {
+                      "type": "object",
+                      "properties": {
+                        "languageLabel": {
+                          "type": "string"
+                        },
+                        "titleLabel": {
+                          "type": "string"
+                        },
+                        "nameLabel": {
+                          "type": "string"
+                        },
+                        "firstNameLabel": {
+                          "type": "string"
+                        },
+                        "userTitleLabel": {
+                          "type": "string"
+                        },
+                        "lastNameLabel": {
+                          "type": "string"
+                        },
+                        "homeAddressLabel": {
+                          "type": "string"
+                        },
+                        "cityLabel": {
+                          "type": "string"
+                        },
+                        "emailLabel": {
+                          "type": "string"
+                        },
+                        "confirmEmailLabel": {
+                          "type": "string"
+                        },
+                        "telMobileLabel": {
+                          "type": "string"
+                        },
+                        "telHomeLabel": {
+                          "type": "string"
+                        },
+                        "telWorkLabel": {
+                          "type": "string"
+                        },
+                        "messageAllLabel": {
+                          "type": "string"
+                        },
+                        "newsAllLabel": {
+                          "type": "string"
+                        },
+                        "postCode": {
+                          "type": "string"
+                        },
+                        "save": {
+                          "type": "string"
+                        },
+                        "cancel": {
+                          "type": "string"
+                        },
+                        "emailsNotMatch": {
+                          "type": "string"
+                        },
+                        "privacyPupilSwitcherTitler": {
+                          "type": "string"
+                        },
+                        "privacyInfoDescription": {
+                          "type": "string"
+                        },
+                        "emailEmpty": {
+                          "type": "string"
+                        },
+                        "accountSettingsLabel": {
+                          "type": "string"
+                        },
+                        "usernameLabel": {
+                          "type": "string"
+                        },
+                        "changeLanguageLabel": {
+                          "type": "string"
+                        },
+                        "usernameHintLabel": {
+                          "type": "string"
+                        },
+                        "emailAsUsernameMessageLabel": {
+                          "type": "string"
+                        },
+                        "returnToList": {
+                          "type": "string"
+                        },
+                        "preferences": {
+                          "type": "string"
+                        },
+                        "makeVisibleInContactListSwitcherTitle": {
+                          "type": "string"
+                        },
+                        "privacyTitle": {
+                          "type": "string"
+                        },
+                        "privacyText": {
+                          "type": "string"
+                        },
+                        "privacyLink": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "privacyUrl": {
+                      "type": "string"
+                    },
+                    "sections": {
+                      "type": "object",
+                      "properties": {
+                        "accountSettings": {
+                          "type": "object",
+                          "properties": {
+                            "languageOptions": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "key": {
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "type": "string"
+                                  },
+                                  "cultureCode": {
+                                    "type": "string"
+                                  },
+                                  "selected": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            },
+                            "username": {
+                              "type": "string"
+                            },
+                            "showUsername": {
+                              "type": "number"
+                            },
+                            "codeName": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "translations": {
+                              "type": "object",
+                              "properties": {}
+                            },
+                            "urls": {
+                              "type": "object",
+                              "properties": {
+                                "save": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "privacy": {
+                          "type": "object",
+                          "properties": {
+                            "showName": {
+                              "type": "number"
+                            },
+                            "showAddress": {
+                              "type": "number"
+                            },
+                            "showPhone": {
+                              "type": "number"
+                            },
+                            "showMobile": {
+                              "type": "number"
+                            },
+                            "pupils": {
+                              "type": "object"
+                            },
+                            "studentId": {
+                              "type": "object"
+                            },
+                            "onlyShowPrivacyPolicy": {
+                              "type": "number"
+                            },
+                            "isChildVisibleInContactList": {
+                              "type": "number"
+                            },
+                            "codeName": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "translations": {
+                              "type": "object",
+                              "properties": {}
+                            },
+                            "urls": {
+                              "type": "object",
+                              "properties": {}
+                            }
+                          }
+                        },
+                        "pushNotifications": {
+                          "type": "object",
+                          "properties": {
+                            "notifications": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "appCodeName": {
+                                    "type": "string"
+                                  },
+                                  "typeName": {
+                                    "type": "string"
+                                  },
+                                  "typeDescription": {
+                                    "type": "string"
+                                  },
+                                  "isSelected": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            },
+                            "codeName": {
+                              "type": "string"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "translations": {
+                              "type": "object",
+                              "properties": {}
+                            },
+                            "urls": {
+                              "type": "object",
+                              "properties": {
+                                "updateNotification": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "x-path-templates": [
+    "ignore:/",
+    "ignore:/Authentication/Authentication/LoginCallback",
+    "ignore:/Resources/Resource/Download/15177272",
+    "ignore:/authentication/authentication/login",
+    "ignore:/dist/html/apps/assessmentv2/assessmentv2.main.html",
+    "ignore:/dist/html/apps/assessmentv2/assessmentv2.summaryAssessmentLgr22.template.html",
+    "ignore:/dist/html/apps/attendance/attendance.main.html",
+    "ignore:/dist/html/apps/attendance/attendance/attendance.list.html",
+    "ignore:/dist/html/apps/attendance/leaveRequests/leaveRequests.leaveRequest.html",
+    "ignore:/dist/html/apps/attendance/leaveRequests/leaveRequests.list.html",
+    "ignore:/dist/html/apps/calendarv2/calendarv2.main.html",
+    "ignore:/dist/html/apps/communication/communication.documents.html",
+    "ignore:/dist/html/apps/communication/communication.links.html",
+    "ignore:/dist/html/apps/communication/communication.main.html",
+    "ignore:/dist/html/apps/communication/communication.news.html",
+    "ignore:/dist/html/apps/documentation/documentation.journal.html",
+    "ignore:/dist/html/apps/documentation/documentation.main.html",
+    "ignore:/dist/html/apps/message/message.main.html",
+    "ignore:/dist/html/apps/preferences/preferences.main.html",
+    "ignore:/dist/html/apps/timetable/timetable.main.html",
+    "ignore:/dist/images/communication-header-primary.jpg",
+    "ignore:/dist/images/infoMentor_logo_600x163.png",
+    "ignore:/dist/scripts/scripts.js",
+    "ignore:/service-worker.js"
+  ]
+}

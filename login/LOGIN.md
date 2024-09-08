@@ -27,3 +27,5 @@ Don't forget to save all cookies in some sort of session since you will need the
 Congratulations! If you have saved your cookies throughout this session you should now be logged in and authenticated. 
 
 You can check if you are authenticated or not by making a post request with no data to `https://hub.infomentor.se/authentication/authentication/isauthenticated` which returns a boolean.
+
+## NOTE: You cannot be logged in at 2 places at the same time. This will trigger a forced login-loop.
