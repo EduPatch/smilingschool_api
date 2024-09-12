@@ -81,7 +81,7 @@ tags:
 - name: account
   description: Account API category
 - name: Resources
-  description: Resource API 
+  description: Resource API
 paths:
   /NotificationApp/NotificationApp/GetNotifications:
     description: Get all user notifications
@@ -550,7 +550,7 @@ paths:
       summary: GET login
       description: Login page, please read LOGIN.md
       tags:
-        - authentication
+      - authentication
       responses:
         '200':
           description: OK
@@ -571,7 +571,7 @@ paths:
       summary: GET logincallback
       description: Login callback, please read LOGIN.md
       tags:
-        - authentication
+      - authentication
       responses:
         '200':
           description: OK
@@ -674,7 +674,7 @@ paths:
       summary: POST appdata
       description: Get calendar appData
       tags:
-        - calendarv2
+      - calendarv2
       responses:
         '200':
           description: OK
@@ -783,7 +783,7 @@ paths:
       summary: POST getentries
       description: Get calendar events as an array of objects
       tags:
-        - calendarv2
+      - calendarv2
       responses:
         '200':
           description: OK
@@ -851,7 +851,7 @@ paths:
       summary: POST appdata
       description: Get timetable appData
       tags:
-        - timetable
+      - timetable
       responses:
         '200':
           description: OK
@@ -940,7 +940,7 @@ paths:
       summary: POST gettimetablelist
       description: Get timetables in form of an array of objects
       tags:
-        - timetable
+      - timetable
       responses:
         '200':
           description: OK
@@ -993,7 +993,7 @@ paths:
       summary: UNDOCUMENTED | POST getleaverequestlist
       description: Get leave requests as an array of objects
       tags:
-        - attendance
+      - attendance
       responses:
         '200':
           description: OK
@@ -1007,7 +1007,7 @@ paths:
       summary: POST appdata
       description: Get documentation appData
       tags:
-        - Documentation
+      - Documentation
       responses:
         '200':
           description: OK
@@ -1111,7 +1111,7 @@ paths:
       summary: UNDOCUMENTED | POST getjournallist
       description: Get documentation journal
       tags:
-        - Documentation
+      - Documentation
       responses:
         '200':
           description: OK
@@ -1136,7 +1136,7 @@ paths:
       summary: POST appdata
       description: Get appData for assessments
       tags:
-        - AssessmentV2
+      - AssessmentV2
       responses:
         '200':
           description: OK
@@ -1453,7 +1453,7 @@ paths:
       summary: POST appdata
       description: Get communication appData
       tags:
-        - Communication
+      - Communication
       responses:
         '200':
           description: OK
@@ -1735,7 +1735,7 @@ paths:
       summary: POST getnewslist
       description: Get news on communication page
       tags:
-        - Communication
+      - Communication
       responses:
         '200':
           description: OK
@@ -1783,7 +1783,7 @@ paths:
       summary: POST getdocumentslist
       description: Get documents on communication page
       tags:
-        - Communication
+      - Communication
       responses:
         '200':
           description: OK
@@ -1834,7 +1834,7 @@ paths:
       summary: GET download by id
       description: Get a download by id
       tags:
-        - Resources
+      - Resources
       responses:
         '200':
           description: OK
@@ -1865,7 +1865,7 @@ paths:
       summary: POST getlinkslist
       description: Get links on communication page
       tags:
-        - Communication
+      - Communication
       responses:
         '200':
           description: OK
@@ -1916,7 +1916,7 @@ paths:
       summary: POST appdata
       description: Get appData for preferences
       tags:
-        - account
+      - account
       responses:
         '200':
           description: OK
@@ -2096,6 +2096,87 @@ paths:
         required: false
         schema:
           type: number
+  /NotificationApp/NotificationApp/appData:
+    post:
+      summary: POST appdata
+      description: Get notifications appData
+      tags:
+        - NotificationApp
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notifications:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        title:
+                          type: string
+                        subTitle:
+                          type: string
+                        subjectsCourses:
+                          type: string
+                        dateSent:
+                          type: string
+                        appType:
+                          type: string
+                        state:
+                          type: string
+                        type:
+                          type: string
+                        url:
+                          type: string
+                        orderDate:
+                          type: string
+                        pupilIM2Id:
+                          type: number
+                        pupilSourceId:
+                          type: string
+                        currentlySelectedPupil:
+                          type: number
+                        entityTypeString:
+                          type: string
+                  timestamp:
+                    type: string
+                  translations:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      notificationsCleared:
+                        type: string
+                      noNotifications:
+                        type: string
+                      pupilName:
+                        type: string
+                      clearList:
+                        type: string
+                      undo:
+                        type: string
+                      timeFormatJustNow:
+                        type: string
+                      timeFormatMinutes:
+                        type: string
+                      timeFormatHours:
+                        type: string
+                      timeFormatYesterday:
+                        type: string
+                      new:
+                        type: string
+                  urls:
+                    type: object
+                    properties:
+                      getAppNotifications:
+                        type: string
+                      updateState:
+                        type: string
 servers:
 - url: https://hub.infomentor.se
   description: The default server
@@ -2123,3 +2204,6 @@ x-path-templates:
 - ignore:/dist/images/infoMentor_logo_600x163.png
 - ignore:/dist/scripts/scripts.js
 - ignore:/service-worker.js
+- ignore:/Authentication/Authentication/appData
+- ignore:/authentication/authentication/appData
+- ignore:/resources/resource/appData
