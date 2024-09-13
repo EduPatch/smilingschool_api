@@ -1,4 +1,5 @@
 *cookiefile*
 *__pycache__*
 runner.py
-flows/*
+flows/
+responses/
