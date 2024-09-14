@@ -54,6 +54,8 @@ components:
           type: string
         options:
           type: array
+          items:
+            {}
         type:
           type: string
         name:
@@ -268,18 +270,30 @@ paths:
                         type: integer
                       items:
                         type: array
+                        items:
+                          {}
                       allItemIds:
                         type: array
+                        items:
+                          {}
                         nullable: true
                       more:
                         type: array
+                        items:
+                          {}
                         nullable: true
                   leaveRequests:
                     type: array
+                    items:
+                      {}
                   absenceTodaySessions:
                     type: array
+                    items:
+                      {}
                   absenceTomorrowSessions:
                     type: array
+                    items:
+                      {}
                   autoConfirmAbsence:
                     type: boolean
                   absentToday:
@@ -2195,32 +2209,3 @@ paths:
 servers:
 - url: https://hub.infomentor.se
   description: The default server
-x-path-templates:
-# Remove the ignore: prefix to generate an endpoint with its URL
-# Lines that are closer to the top take precedence, the matching is greedy
-- ignore:/Authentication/Authentication/appData
-- ignore:/authentication/authentication/appData
-- ignore:/resources/resource/appData
-- authentication/authentication/isauthenticated/
-- ignore:/
-- ignore:/authentication/authentication/isauthenticated/
-- ignore:/dist/html/apps/assessmentv2/assessmentv2.main.html
-- ignore:/dist/html/apps/assessmentv2/assessmentv2.summaryAssessmentLgr22.template.html
-- ignore:/dist/html/apps/attendance/attendance.main.html
-- ignore:/dist/html/apps/attendance/attendance/attendance.list.html
-- ignore:/dist/html/apps/attendance/leaveRequests/leaveRequests.leaveRequest.html
-- ignore:/dist/html/apps/attendance/leaveRequests/leaveRequests.list.html
-- ignore:/dist/html/apps/calendarv2/calendarv2.main.html
-- ignore:/dist/html/apps/communication/communication.documents.html
-- ignore:/dist/html/apps/communication/communication.links.html
-- ignore:/dist/html/apps/communication/communication.main.html
-- ignore:/dist/html/apps/communication/communication.news.html
-- ignore:/dist/html/apps/documentation/documentation.journal.html
-- ignore:/dist/html/apps/documentation/documentation.main.html
-- ignore:/dist/html/apps/message/message.main.html
-- ignore:/dist/html/apps/preferences/preferences.main.html
-- ignore:/dist/html/apps/timetable/timetable.main.html
-- ignore:/dist/images/communication-header-primary.jpg
-- ignore:/dist/images/infoMentor_logo_600x163.png
-- ignore:/dist/scripts/scripts.js
-- ignore:/service-worker.js
