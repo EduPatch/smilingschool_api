@@ -136,6 +136,18 @@ paths:
                     type: boolean
                   entityTypeString:
                     type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notifications:
+                    type: array
+                    items: {}
+                  timestamp:
+                    type: string
   /NotificationApp/NotificationApp/UpdateNotificationState:
     description: Update notification states
     post:
@@ -594,6 +606,9 @@ paths:
           type: string
     post:
       summary: POST appdata
+      description: Login callback, please read LOGIN.md
+      tags:
+      - authentication
       responses:
         '200':
           description: OK
@@ -2101,7 +2116,7 @@ paths:
       summary: POST appdata
       description: Get notifications appData
       tags:
-        - NotificationApp
+      - NotificationApp
       responses:
         '200':
           description: OK
@@ -2183,7 +2198,12 @@ servers:
 x-path-templates:
 # Remove the ignore: prefix to generate an endpoint with its URL
 # Lines that are closer to the top take precedence, the matching is greedy
+- ignore:/Authentication/Authentication/appData
+- ignore:/authentication/authentication/appData
+- ignore:/resources/resource/appData
+- authentication/authentication/isauthenticated/
 - ignore:/
+- ignore:/authentication/authentication/isauthenticated/
 - ignore:/dist/html/apps/assessmentv2/assessmentv2.main.html
 - ignore:/dist/html/apps/assessmentv2/assessmentv2.summaryAssessmentLgr22.template.html
 - ignore:/dist/html/apps/attendance/attendance.main.html
@@ -2204,6 +2224,3 @@ x-path-templates:
 - ignore:/dist/images/infoMentor_logo_600x163.png
 - ignore:/dist/scripts/scripts.js
 - ignore:/service-worker.js
-- ignore:/Authentication/Authentication/appData
-- ignore:/authentication/authentication/appData
-- ignore:/resources/resource/appData
