@@ -8,32 +8,32 @@ components:
     notificationState:
       type: string
       enum:
-      - New
-      - Seen
-      - Read
-      - Cleared
+        - New
+        - Seen
+        - Read
+        - Cleared
     appType:
       type: string
       enum:
-      - Timeline
-      - Assignment
-      - News
-      - Assessment
-      - WeeklyPlan
-      - HomeWork
-      - Portfolio
-      - Calendar
-      - CalendarV2
-      - ParentMeeting
-      - Uol
-      - OnlineTest
-      - Survey
-      - Unknown
-      - Attendance
-      - IUP
-      - SpecialPlan
-      - Journal
-      - Consent
+        - Timeline
+        - Assignment
+        - News
+        - Assessment
+        - WeeklyPlan
+        - HomeWork
+        - Portfolio
+        - Calendar
+        - CalendarV2
+        - ParentMeeting
+        - Uol
+        - OnlineTest
+        - Survey
+        - Unknown
+        - Attendance
+        - IUP
+        - SpecialPlan
+        - Journal
+        - Consent
     attendanceHeader:
       type: object
       properties:
@@ -54,8 +54,7 @@ components:
           type: string
         options:
           type: array
-          items:
-            {}
+          items: {}
         type:
           type: string
         name:
@@ -64,32 +63,32 @@ components:
           type: string
 security: []
 tags:
-- name: NotificationApp
-  description: The API app for notifications
-- name: timetable
-  description: The API app for the timetable
-- name: authentication
-  description: The API app for authentication
-- name: Communication
-  description: The API app for communication
-- name: Documentation
-  description: The API app for documentation/notes
-- name: attendance
-  description: The API app for attendance
-- name: AssessmentV2
-  description: The API app for assessments
-- name: calendarv2
-  description: The API app for the calendar
-- name: account
-  description: Account API category
-- name: Resources
-  description: Resource API
+  - name: NotificationApp
+    description: The API app for notifications
+  - name: timetable
+    description: The API app for the timetable
+  - name: authentication
+    description: The API app for authentication
+  - name: Communication
+    description: The API app for communication
+  - name: Documentation
+    description: The API app for documentation/notes
+  - name: attendance
+    description: The API app for attendance
+  - name: AssessmentV2
+    description: The API app for assessments
+  - name: calendarv2
+    description: The API app for the calendar
+  - name: account
+    description: Account API category
+  - name: Resources
+    description: Resource API
 paths:
   /NotificationApp/NotificationApp/GetNotifications:
-    description: Get all user notifications
+    description: Get all user notifications, timetstamp is optional
     post:
       tags:
-      - NotificationApp
+        - NotificationApp
       requestBody:
         content:
           application/json:
@@ -101,45 +100,9 @@ paths:
                   format: date-time
       responses:
         default:
-          description: Responds with a list of notification entries depending on the
+          description:
+            Responds with a list of notification entries depending on the
             timestamp supplied
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  title:
-                    type: string
-                  subTitle:
-                    type: string
-                  subjectsCourses:
-                    type: string
-                  dateSent:
-                    type: string
-                    format: date-time
-                  appType:
-                    $ref: '#/components/schemas/appType'
-                  state:
-                    $ref: '#/components/schemas/notificationState'
-                  type:
-                    type: string
-                  url:
-                    type: string
-                  orderDate:
-                    type: string
-                    format: date-time
-                  pupilIM2Id:
-                    type: integer
-                  pupilSourceId:
-                    type: string
-                  currentlySelectedPupil:
-                    type: boolean
-                  entityTypeString:
-                    type: string
-        '200':
-          description: OK
           content:
             application/json:
               schema:
@@ -147,14 +110,46 @@ paths:
                 properties:
                   notifications:
                     type: array
-                    items: {}
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        subTitle:
+                          type: string
+                        subjectsCourses:
+                          type: string
+                        dateSent:
+                          type: string
+                          format: date-time
+                        appType:
+                          $ref: "#/components/schemas/appType"
+                        state:
+                          $ref: "#/components/schemas/notificationState"
+                        type:
+                          type: string
+                        url:
+                          type: string
+                        orderDate:
+                          type: string
+                          format: date-time
+                        pupilIM2Id:
+                          type: integer
+                        pupilSourceId:
+                          type: string
+                        currentlySelectedPupil:
+                          type: boolean
+                        entityTypeString:
+                          type: string
                   timestamp:
                     type: string
   /NotificationApp/NotificationApp/UpdateNotificationState:
     description: Update notification states
     post:
       tags:
-      - NotificationApp
+        - NotificationApp
       requestBody:
         content:
           application/json:
@@ -166,7 +161,7 @@ paths:
                   items:
                     type: integer
                 state:
-                  $ref: '#/components/schemas/notificationState'
+                  $ref: "#/components/schemas/notificationState"
       responses:
         default:
           description: Responds with a success value of true or false
@@ -180,18 +175,19 @@ paths:
   /authentication/authentication/isauthenticated:
     post:
       tags:
-      - authentication
+        - authentication
       description: Retreive if user is authenticated or not
       parameters:
-      - name: _
-        in: query
-        description: Parameter to provide a timestamp. Purpose is unknown
-        required: false
-        schema:
-          type: number
+        - name: _
+          in: query
+          description: Parameter to provide a timestamp. Purpose is unknown
+          required: false
+          schema:
+            type: number
       responses:
-        '200':
-          description: Always returns 200, but the content actually determines if
+        "200":
+          description:
+            Always returns 200, but the content actually determines if
             it was successful or not!
           content:
             application/json:
@@ -200,18 +196,19 @@ paths:
   /attendance/attendance/appData:
     post:
       tags:
-      - attendance
+        - attendance
       description: Retreive data for the app such as field texts, translations, etc.
       parameters:
-      - name: _
-        in: query
-        description: Parameter to provide a timestamp. Purpose is unknown
-        required: false
-        schema:
-          type: number
+        - name: _
+          in: query
+          description: Parameter to provide a timestamp. Purpose is unknown
+          required: false
+          schema:
+            type: number
       responses:
-        '200':
-          description: Always returns 200, but the content actually determines if
+        "200":
+          description:
+            Always returns 200, but the content actually determines if
             it was successful or not!
           content:
             application/json:
@@ -234,13 +231,13 @@ paths:
                         type: object
                         properties:
                           date:
-                            $ref: '#/components/schemas/attendanceHeader'
+                            $ref: "#/components/schemas/attendanceHeader"
                           time:
-                            $ref: '#/components/schemas/attendanceHeader'
+                            $ref: "#/components/schemas/attendanceHeader"
                           subject:
-                            $ref: '#/components/schemas/attendanceHeader'
+                            $ref: "#/components/schemas/attendanceHeader"
                           reason:
-                            $ref: '#/components/schemas/attendanceHeader'
+                            $ref: "#/components/schemas/attendanceHeader"
                       filters:
                         type: object
                         properties:
@@ -254,7 +251,7 @@ paths:
                           filters:
                             type: array
                             items:
-                              $ref: '#/components/schemas/attendanceFilter'
+                              $ref: "#/components/schemas/attendanceFilter"
                       listUrl:
                         type: string
                         format: uri
@@ -270,30 +267,24 @@ paths:
                         type: integer
                       items:
                         type: array
-                        items:
-                          {}
+                        items: {}
                       allItemIds:
                         type: array
-                        items:
-                          {}
+                        items: {}
                         nullable: true
                       more:
                         type: array
-                        items:
-                          {}
+                        items: {}
                         nullable: true
                   leaveRequests:
                     type: array
-                    items:
-                      {}
+                    items: {}
                   absenceTodaySessions:
                     type: array
-                    items:
-                      {}
+                    items: {}
                   absenceTomorrowSessions:
                     type: array
-                    items:
-                      {}
+                    items: {}
                   autoConfirmAbsence:
                     type: boolean
                   absentToday:
@@ -523,8 +514,8 @@ paths:
                         type: string
                       leaveRequestOnlyOneGuardianRegistered:
                         type: string
-                      leaveRequestMustBeApprovedSecondaryGuardianNotificationWillBeSend:
-                        type: string
+                      ? leaveRequestMustBeApprovedSecondaryGuardianNotificationWillBeSend
+                      : type: string
                       leaveRequestOnceYouSubmitItWillPending:
                         type: string
                       leaveRequestAwaitingSecondaryApproval:
@@ -576,55 +567,55 @@ paths:
       summary: GET login
       description: Login page, please read LOGIN.md
       tags:
-      - authentication
+        - authentication
       responses:
-        '200':
+        "200":
           description: OK
           content: {}
       parameters:
-      - name: apitype
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: forceOAuth
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: apitype
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: forceOAuth
+          in: query
+          required: false
+          schema:
+            type: string
   /Authentication/Authentication/LoginCallback:
     get:
       summary: GET logincallback
       description: Login callback, please read LOGIN.md
       tags:
-      - authentication
+        - authentication
       responses:
-        '200':
+        "200":
           description: OK
           content: {}
       parameters:
-      - name: apitype
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: oauth_verifier
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: oauth_token
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: apitype
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: oauth_verifier
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: oauth_token
+          in: query
+          required: false
+          schema:
+            type: string
     post:
       summary: POST appdata
       description: Login callback, please read LOGIN.md
       tags:
-      - authentication
+        - authentication
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -703,9 +694,9 @@ paths:
       summary: POST appdata
       description: Get calendar appData
       tags:
-      - calendarv2
+        - calendarv2
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -802,19 +793,19 @@ paths:
                       getO365EventDescription:
                         type: string
       parameters:
-      - name: _
-        in: query
-        required: false
-        schema:
-          type: number
+        - name: _
+          in: query
+          required: false
+          schema:
+            type: number
   /calendarv2/calendarv2/getentries:
     post:
       summary: POST getentries
       description: Get calendar events as an array of objects
       tags:
-      - calendarv2
+        - calendarv2
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -880,9 +871,9 @@ paths:
       summary: POST appdata
       description: Get timetable appData
       tags:
-      - timetable
+        - timetable
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -959,19 +950,19 @@ paths:
                   appendRoomNameToTitle:
                     type: number
       parameters:
-      - name: _
-        in: query
-        required: false
-        schema:
-          type: number
+        - name: _
+          in: query
+          required: false
+          schema:
+            type: number
   /timetable/timetable/gettimetablelist:
     post:
       summary: POST gettimetablelist
       description: Get timetables in form of an array of objects
       tags:
-      - timetable
+        - timetable
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1022,9 +1013,9 @@ paths:
       summary: UNDOCUMENTED | POST getleaverequestlist
       description: Get leave requests as an array of objects
       tags:
-      - attendance
+        - attendance
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1036,9 +1027,9 @@ paths:
       summary: POST appdata
       description: Get documentation appData
       tags:
-      - Documentation
+        - Documentation
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1130,19 +1121,19 @@ paths:
                       getSpecialPlanVersion:
                         type: string
       parameters:
-      - name: _
-        in: query
-        required: false
-        schema:
-          type: number
+        - name: _
+          in: query
+          required: false
+          schema:
+            type: number
   /Documentation/Journal/GetJournalList:
     post:
       summary: UNDOCUMENTED | POST getjournallist
       description: Get documentation journal
       tags:
-      - Documentation
+        - Documentation
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1165,9 +1156,9 @@ paths:
       summary: POST appdata
       description: Get appData for assessments
       tags:
-      - AssessmentV2
+        - AssessmentV2
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1457,34 +1448,34 @@ paths:
                       getSummaryAssessmentsForGym:
                         type: string
       parameters:
-      - name: codename
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: action
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: tab
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: _
-        in: query
-        required: false
-        schema:
-          type: number
+        - name: codename
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: action
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: tab
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: _
+          in: query
+          required: false
+          schema:
+            type: number
   /communication/communication/appData:
     post:
       summary: POST appdata
       description: Get communication appData
       tags:
-      - Communication
+        - Communication
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1498,25 +1489,25 @@ paths:
                   linkTypeFilters:
                     type: object
                     properties:
-                      '1008':
+                      "1008":
                         type: string
-                      '1010':
+                      "1010":
                         type: string
-                      '1013':
+                      "1013":
                         type: string
-                      '1015':
+                      "1015":
                         type: string
-                      '1017':
+                      "1017":
                         type: string
-                      '1032':
+                      "1032":
                         type: string
-                      '2077':
+                      "2077":
                         type: string
-                      '2078':
+                      "2078":
                         type: string
-                      '2079':
+                      "2079":
                         type: string
-                      '0':
+                      "0":
                         type: string
                   consentViewConfig:
                     type: object
@@ -1754,19 +1745,19 @@ paths:
                       getLinksList:
                         type: string
       parameters:
-      - name: _
-        in: query
-        required: false
-        schema:
-          type: number
+        - name: _
+          in: query
+          required: false
+          schema:
+            type: number
   /Communication/News/GetNewsList:
     post:
       summary: POST getnewslist
       description: Get news on communication page
       tags:
-      - Communication
+        - Communication
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1812,9 +1803,9 @@ paths:
       summary: POST getdocumentslist
       description: Get documents on communication page
       tags:
-      - Communication
+        - Communication
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1863,40 +1854,40 @@ paths:
       summary: GET download by id
       description: Get a download by id
       tags:
-      - Resources
+        - Resources
       responses:
-        '200':
+        "200":
           description: OK
           content: {}
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: api
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: ModuleType
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: ConnectionId
-        in: query
-        required: false
-        schema:
-          type: number
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: ModuleType
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: ConnectionId
+          in: query
+          required: false
+          schema:
+            type: number
   /Communication/Links/GetLinksList:
     post:
       summary: POST getlinkslist
       description: Get links on communication page
       tags:
-      - Communication
+        - Communication
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -1945,9 +1936,9 @@ paths:
       summary: POST appdata
       description: Get appData for preferences
       tags:
-      - account
+        - account
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2120,19 +2111,19 @@ paths:
                               updateNotification:
                                 type: string
       parameters:
-      - name: _
-        in: query
-        required: false
-        schema:
-          type: number
+        - name: _
+          in: query
+          required: false
+          schema:
+            type: number
   /NotificationApp/NotificationApp/appData:
     post:
       summary: POST appdata
       description: Get notifications appData
       tags:
-      - NotificationApp
+        - NotificationApp
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -2207,5 +2198,5 @@ paths:
                       updateState:
                         type: string
 servers:
-- url: https://hub.infomentor.se
-  description: The default server
+  - url: https://hub.infomentor.se
+    description: The default server
