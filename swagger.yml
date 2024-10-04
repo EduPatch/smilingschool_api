@@ -2198,7 +2198,7 @@ paths:
     post:
       summary: POST getattendancelist
       tags:
-        - Attendance
+        - attendance
       responses:
         '200':
           description: OK
