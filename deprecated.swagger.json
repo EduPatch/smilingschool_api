@@ -3,7 +3,7 @@
     "openapi": "3.0.3",
     "info": {
         "description": "A swagger schema of the InfoMentor Hub API",
-        "title": "InfoMentor Hub Swagger API",
+        "title": "SmilingSchool Hub Swagger API",
         "version": "1.0.0"
     },
     "components": {
