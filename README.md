@@ -1,7 +1,12 @@
 # SmilingSchool API Specification
-![Static Badge](https://img.shields.io/badge/Coverage-22%25-green?style=plastic&logo=openapiinitiative)
+<!--![Static Badge](https://img.shields.io/badge/Coverage-22%25-green?style=plastic&logo=openapiinitiative)-->
 
 Infomentor is one rabbit hole for sure, but this project aims to make it a little more accessible!
 
-# Coverage
+<!--## Coverage
+
 See [COVERAGE.md](/COVERAGE.md)
+
+No time to actually calculate endpoint coverage-->
+
+[OpenAPI YAML Spec](swagger.yml)
