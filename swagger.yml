@@ -63,26 +63,34 @@ components:
           type: string
 security: []
 tags:
-- name: NotificationApp
-  description: The API app for notifications
-- name: timetable
-  description: The API app for the timetable
-- name: authentication
+- name: Account
+  description: Account API category
+- name: AssessmentV2
+  description: The API app for assessments
+- name: Attendance
+  description: The API app for attendance
+- name: Authentication
   description: The API app for authentication
+- name: CalendarV2
+  description: The API app for the calendar
+- name: Classlist
+  description: The API for classlists, School Personnel, classmates, etc.
 - name: Communication
   description: The API app for communication
 - name: Documentation
   description: The API app for documentation/notes
-- name: attendance
-  description: The API app for attendance
-- name: AssessmentV2
-  description: The API app for assessments
-- name: calendarv2
-  description: The API app for the calendar
-- name: account
-  description: Account API category
+- name: NotificationApp
+  description: The API app for notifications
 - name: Resources
   description: Resource API
+- name: Task
+  description: The API for tasks
+- name: Timeregistration
+  description: The API for "freetime planning"
+- name: Timetable
+  description: The API app for the timetable
+- name: UolV2
+  description: The API for the planning app
 paths:
   /NotificationApp/NotificationApp/GetNotifications:
     description: Get all user notifications, timetstamp is optional
@@ -186,7 +194,7 @@ paths:
   /authentication/authentication/isauthenticated:
     post:
       tags:
-      - authentication
+      - Authentication
       description: Retreive if user is authenticated or not
       parameters:
       - name: _
@@ -206,7 +214,7 @@ paths:
   /attendance/attendance/appData:
     post:
       tags:
-      - attendance
+      - Attendance
       description: Retreive data for the app such as field texts, translations, etc.
       parameters:
       - name: _
@@ -576,7 +584,7 @@ paths:
       summary: GET login
       description: Login page, please read LOGIN.md
       tags:
-      - authentication
+      - Authentication
       responses:
         '200':
           description: OK
@@ -597,7 +605,7 @@ paths:
       summary: GET logincallback
       description: Login callback, please read LOGIN.md
       tags:
-      - authentication
+      - Authentication
       responses:
         '200':
           description: OK
@@ -622,7 +630,7 @@ paths:
       summary: POST appdata
       description: Login callback, please read LOGIN.md
       tags:
-      - authentication
+      - Authentication
       responses:
         '200':
           description: OK
@@ -703,7 +711,7 @@ paths:
       summary: POST appdata
       description: Get calendar appData
       tags:
-      - calendarv2
+      - CalendarV2
       responses:
         '200':
           description: OK
@@ -812,7 +820,7 @@ paths:
       summary: POST getentries
       description: Get calendar events as an array of objects
       tags:
-      - calendarv2
+      - CalendarV2
       responses:
         '200':
           description: OK
@@ -880,7 +888,7 @@ paths:
       summary: POST appdata
       description: Get timetable appData
       tags:
-      - timetable
+      - Timetable
       responses:
         '200':
           description: OK
@@ -969,7 +977,7 @@ paths:
       summary: POST gettimetablelist
       description: Get timetables in form of an array of objects
       tags:
-      - timetable
+      - Timetable
       responses:
         '200':
           description: OK
@@ -1022,7 +1030,7 @@ paths:
       summary: UNDOCUMENTED | POST getleaverequestlist
       description: Get leave requests as an array of objects
       tags:
-      - attendance
+      - Attendance
       responses:
         '200':
           description: OK
@@ -1945,7 +1953,7 @@ paths:
       summary: POST appdata
       description: Get appData for preferences
       tags:
-      - account
+      - Account
       responses:
         '200':
           description: OK
@@ -2210,7 +2218,7 @@ paths:
     post:
       summary: POST getattendancelist
       tags:
-      - attendance
+      - Attendance
       responses:
         '200':
           description: OK
@@ -2337,24 +2345,10 @@ paths:
                     type: object
                   more:
                     type: number
-  /authentication/authentication/isauthenticated/:
-    post:
-      summary: POST isauthenticated
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: number
-      parameters:
-      - name: _
-        in: query
-        required: false
-        schema:
-          type: number
   /attendance/attendance/SetSecondaryStatus:
     post:
+      tags:
+      - Attendance
       summary: POST setsecondarystatus
       responses:
         '200':
@@ -2378,6 +2372,8 @@ paths:
                   type: number
   /attendance/attendance/registerAttendance:
     post:
+      tags:
+      - Attendance
       summary: POST registerattendance
       responses:
         '200':
@@ -2407,6 +2403,8 @@ paths:
                   type: string
   /classlist/classlist/appData:
     post:
+      tags:
+      - Classlist
       summary: POST appdata
       responses:
         '200':
@@ -2584,6 +2582,8 @@ paths:
           type: number
   /ClassList/classlist/GetPupil:
     post:
+      tags:
+      - Classlist
       summary: POST getpupil
       responses:
         '200':
@@ -2661,6 +2661,8 @@ paths:
                   type: object
   /ClassList/classlist/GetStaff:
     post:
+      tags:
+      - Classlist
       summary: POST getstaff
       responses:
         '200':
@@ -2712,6 +2714,8 @@ paths:
                   type: string
   /ClassList/ClassList/GetStaffPicture:
     get:
+      tags:
+      - Classlist
       summary: GET getstaffpicture
       responses:
         '200':
@@ -2725,6 +2729,8 @@ paths:
           type: number
   /task/task/appData:
     post:
+      tags:
+      - Task
       summary: POST appdata
       responses:
         '200':
@@ -3012,6 +3018,8 @@ paths:
   /Resources/Resource/Thumbnail/{id}:
     get:
       summary: GET thumbnail by id
+      tags:
+      - Resources
       responses:
         '200':
           description: OK
@@ -3050,6 +3058,8 @@ paths:
   /Communication/Consents/GetCurrentList:
     post:
       summary: POST getcurrentlist
+      tags:
+      - Communication
       responses:
         '200':
           description: OK
@@ -3081,6 +3091,8 @@ paths:
                   type: number
   /AssessmentV2/SummaryAssessments/GetSummaryAssessmentsLgr22:
     post:
+      tags:
+      - AssessmentV2
       summary: POST getsummaryassessmentslgr22
       responses:
         '200':
@@ -3116,6 +3128,8 @@ paths:
   /AssessmentV2/AssessmentV2/GetNavigationItems:
     post:
       summary: POST getnavigationitems
+      tags:
+      - AssessmentV2
       responses:
         '200':
           description: OK
@@ -3209,6 +3223,8 @@ paths:
   /AssessmentV2/AssessmentV2SelfAssessment/GetItems/{id}:
     post:
       summary: POST getitems by id
+      tags:
+      - AssessmentV2
       responses:
         '200':
           description: OK
@@ -3347,6 +3363,8 @@ paths:
   /AssessmentV2/AssessmentV2Task/GetItems/{id}:
     post:
       summary: POST getitems by id
+      tags:
+      - AssessmentV2
       responses:
         '200':
           description: OK
@@ -3446,6 +3464,8 @@ paths:
   /NotificationApp/NotificationApp/UpdateAssessmentNotificationState:
     post:
       summary: POST updateassessmentnotificationstate
+      tags:
+      - NotificationApp
       responses:
         '200':
           description: OK
@@ -3471,6 +3491,8 @@ paths:
   /AssessmentV2/MarkScheme/MarkSchemeIcon/{id}:
     get:
       summary: GET markschemeicon by id
+      tags:
+      - AssessmentV2
       responses:
         '200':
           description: OK
@@ -3484,6 +3506,8 @@ paths:
   /AssessmentV2/AssessmentV2Task/GetDialog/:
     post:
       summary: POST getdialog
+      tags:
+      - AssessmentV2
       responses:
         '200':
           description: OK
@@ -3565,6 +3589,8 @@ paths:
   /AssessmentV2/Grades/GetGrades:
     post:
       summary: POST getgrades
+      tags:
+      - AssessmentV2
       responses:
         '200':
           description: OK
@@ -3613,6 +3639,8 @@ paths:
   /uolv2/uolv2/appData:
     post:
       summary: POST appdata
+      tags:
+      - UolV2
       responses:
         '200':
           description: OK
@@ -3740,6 +3768,8 @@ paths:
   /UolV2/UolV2/GetUols:
     post:
       summary: POST getuols
+      tags:
+      - UolV2
       responses:
         '200':
           description: OK
@@ -3819,6 +3849,8 @@ paths:
   /UolV2/UolV2/GetUol:
     post:
       summary: POST getuol
+      tags:
+      - UolV2
       responses:
         '200':
           description: OK
@@ -3876,6 +3908,8 @@ paths:
   /Documentation/Portfolio/AppData:
     post:
       summary: POST appdata
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4028,6 +4062,8 @@ paths:
   /Documentation/Portfolio/GetPortfoliosBySemester:
     post:
       summary: POST getportfoliosbysemester
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4132,6 +4168,8 @@ paths:
   /Documentation/Portfolio/GetPortfolioDetail/{id}:
     post:
       summary: POST getportfoliodetail by id
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4278,6 +4316,8 @@ paths:
   /Documentation/Portfolio/SavePortfolioComment/:
     post:
       summary: POST saveportfoliocomment
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4349,6 +4389,8 @@ paths:
   /Documentation/IUP/GetPupilIUPFilter:
     post:
       summary: POST getpupiliupfilter
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4378,6 +4420,8 @@ paths:
   /Documentation/IUP/GetPupilIUPData:
     post:
       summary: POST getpupiliupdata
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4406,6 +4450,8 @@ paths:
   /Documentation/SpecialPlan/GetSpecialPlan:
     post:
       summary: POST getspecialplan
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4420,6 +4466,8 @@ paths:
   /Documentation/Conference/GetCurrentConference:
     post:
       summary: POST getcurrentconference
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4427,12 +4475,16 @@ paths:
   /Documentation/Conference/GetHistoryConferenceList:
     post:
       summary: POST gethistoryconferencelist
+      tags:
+      - Documentation
       responses:
         '200':
           description: OK
           content: {}
   /timeregistration/timeregistration/appData:
     post:
+      tags:
+      - Timeregistration
       summary: POST appdata
       responses:
         '200':
@@ -4581,6 +4633,8 @@ paths:
           type: number
   /TimeRegistration/TimeRegistration/GetTimeRegistrations/:
     post:
+      tags:
+      - Timeregistration
       summary: POST gettimeregistrations
       responses:
         '200':
@@ -4639,6 +4693,8 @@ paths:
                   type: boolean
   /TimeRegistration/TimeRegistration/SaveTimeRegistrations/:
     post:
+      tags:
+      - Timeregistration
       summary: POST savetimeregistrations
       responses:
         '200':
@@ -4708,9 +4764,115 @@ paths:
                         type: number
                 series:
                   type: object
+  /Documentation/Specialplan/getspecialplan:
+    post:
+      summary: POST getspecialplan
+      tags:
+        - Documentation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  versions:
+                    type: array
+                    items: {}
+  /Documentation/conference/gethistoryconferencelist:
+    post:
+      summary: POST gethistoryconferencelist
+      tags:
+        - Documentation
+      responses:
+        '200':
+          description: OK
+          content: {}
+  /Task/Task/GetTasks:
+    post:
+      summary: POST gettasks
+      tags:
+        - Task
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        status:
+                          type: string
+                        dueDate:
+                          type: string
+                        subject:
+                          type: string
+                        title:
+                          type: string
+                        description:
+                          type: string
+                        read:
+                          type: number
+                        hasUnreadComments:
+                          type: boolean
+                        hasLinks:
+                          type: boolean
+                        hasFiles:
+                          type: boolean
+                        hasReferences:
+                          type: boolean
+                        showOptionalPartsMessage:
+                          type: boolean
+                        milestoneCount:
+                          type: number
+                        milestonesComplete:
+                          type: number
+                        assignedOn:
+                          type: string
+                        isOverdue:
+                          type: boolean
+                        isWithinCurrentTimeframe:
+                          type: boolean
+                        dueDateDateValue:
+                          type: string
+                        showOnedriveResource:
+                          type: boolean
+                        statusText:
+                          type: string
+                  more:
+                    type: number
+                  totalOverdue:
+                    type: number
+                  totalDue:
+                    type: number
+                  totalDone:
+                    type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                academicYearId:
+                  type: string
+                subjects:
+                  type: object
+                teachers:
+                  type: object
+                courses:
+                  type: object
 servers:
 - url: https://hub.infomentor.se
   description: The default server
 x-path-templates:
 # Remove the ignore: prefix to generate an endpoint with its URL
 # Lines that are closer to the top take precedence, the matching is greedy
+  []
