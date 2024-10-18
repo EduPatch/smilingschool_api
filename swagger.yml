@@ -1025,20 +1025,6 @@ paths:
                   type: string
                 end:
                   type: string
-  /attendance/attendance/GetLeaveRequestList:
-    post:
-      summary: UNDOCUMENTED | POST getleaverequestlist
-      description: Get leave requests as an array of objects
-      tags:
-      - Attendance
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items: {}
   /documentation/documentation/appData:
     post:
       summary: POST appdata
@@ -4768,7 +4754,7 @@ paths:
     post:
       summary: POST getspecialplan
       tags:
-        - Documentation
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4784,7 +4770,7 @@ paths:
     post:
       summary: POST gethistoryconferencelist
       tags:
-        - Documentation
+      - Documentation
       responses:
         '200':
           description: OK
@@ -4793,7 +4779,7 @@ paths:
     post:
       summary: POST gettasks
       tags:
-        - Task
+      - Task
       responses:
         '200':
           description: OK
@@ -4869,6 +4855,73 @@ paths:
                   type: object
                 courses:
                   type: object
+  /attendance/attendance/GetLeaveRequestList:
+    post:
+      summary: POST getleaverequestlist
+      tags:
+        - Attendance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    status:
+                      type: string
+                    requesterComment:
+                      type: string
+                    approverComment:
+                      type: object
+                    createdBy:
+                      type: string
+                    approvedByTitle:
+                      type: string
+                    createdByTitle:
+                      type: string
+                    fromDate:
+                      type: string
+                    fromTime:
+                      type: object
+                    toDate:
+                      type: string
+                    toTime:
+                      type: object
+                    updatedDate:
+                      type: string
+                    dateRangeTitle:
+                      type: string
+                    secondaryParentApproverId:
+                      type: number
+                    secondaryParentApproverName:
+                      type: string
+                    secondaryParentStatus:
+                      type: string
+                    secondaryParentApprovalDate:
+                      type: string
+                    secondaryParentApprovalDateText:
+                      type: string
+                    secondaryApprovalText:
+                      type: string
+                    canDelete:
+                      type: boolean
+                    canApprove:
+                      type: boolean
+                    canDeny:
+                      type: boolean
+                    showDeleteButton:
+                      type: boolean
+                    showApproveButton:
+                      type: boolean
+                    showDenyButton:
+                      type: boolean
+                    isAwaitingResponseFromCurrentUser:
+                      type: boolean
 servers:
 - url: https://hub.infomentor.se
   description: The default server
