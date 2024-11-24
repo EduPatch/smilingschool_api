@@ -4859,7 +4859,7 @@ paths:
     post:
       summary: POST getleaverequestlist
       tags:
-        - Attendance
+      - Attendance
       responses:
         '200':
           description: OK
@@ -4922,6 +4922,113 @@ paths:
                       type: boolean
                     isAwaitingResponseFromCurrentUser:
                       type: boolean
+  /AssessmentV2/AssessmentV2SelfAssessment/GetDialog/:
+    post:
+      summary: POST getdialog
+      tags:
+      - AssessmentV2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: array
+                    items: {}
+                  assessmentMarkId:
+                    type: number
+                  aspectMarkSchemeId:
+                    type: number
+                  markSchemes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        isCurrentMarkScheme:
+                          type: boolean
+                        title:
+                          type: string
+                        markInterval:
+                          type: number
+                        maximumMark:
+                          type: number
+                        minimumMark:
+                          type: number
+                        markSchemeType:
+                          type: string
+                        markOptions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: number
+                              value:
+                                type: number
+                              label:
+                                type: string
+                              colour:
+                                type: string
+                              iconUrl:
+                                type: string
+                              altText:
+                                type: object
+                              ordering:
+                                type: number
+                              markSchemeId:
+                                type: number
+                  isReadonly:
+                    type: boolean
+                  decimalSeparator:
+                    type: string
+                  readOnlyMessage:
+                    type: string
+                  marks:
+                    type: array
+                    items: {}
+                  evidence:
+                    type: array
+                    items: {}
+                  statements:
+                    type: array
+                    items: {}
+                  dateStamp:
+                    type: object
+                  nameStamp:
+                    type: object
+                  text:
+                    type: string
+                  headerLabel:
+                    type: string
+                  summaryGroupedCellId:
+                    type: object
+                  groupedCompetenceId:
+                    type: object
+                  title:
+                    type: object
+                  id:
+                    type: number
+      parameters:
+      - name: uol
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: aspectId
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: academicYearId
+        in: query
+        required: false
+        schema:
+          type: number
 servers:
 - url: https://hub.infomentor.se
   description: The default server
