@@ -2380,7 +2380,7 @@ paths:
               type: object
               properties:
                 present:
-                  type: number
+                  type: boolean
                 day:
                   type: string
                 canAddSicknessToTimeRegistration:
