@@ -4877,33 +4877,39 @@ paths:
                     requesterComment:
                       type: string
                     approverComment:
-                      type: object
+                      type: string
+                      nullable: true
                     createdBy:
                       type: string
                     approvedByTitle:
                       type: string
-                    createdByTitle:
+                    createdByTitle: 
                       type: string
                     fromDate:
                       type: string
                     fromTime:
-                      type: object
+                      type: string
+                      nullable: true
                     toDate:
                       type: string
                     toTime:
-                      type: object
+                      type: string
+                      nullable: true
                     updatedDate:
                       type: string
                     dateRangeTitle:
                       type: string
                     secondaryParentApproverId:
                       type: number
+                      nullable: true
                     secondaryParentApproverName:
                       type: string
+                      nullable: true
                     secondaryParentStatus:
                       type: string
                     secondaryParentApprovalDate:
                       type: string
+                      nullable: true
                     secondaryParentApprovalDateText:
                       type: string
                     secondaryApprovalText:
