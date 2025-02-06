@@ -883,6 +883,21 @@ paths:
                   type: string
                 endDate:
                   type: string
+  /calendarv2/calendarv2/geticalsubscriptionuri:
+    post:
+      summary: POST getIcalSubscriptionUri
+      description: Get the calendar subscription URL to use in calendars. Responds with a link using teh webcal:// protocol! Also responds with quotes
+      tags:
+        - CalendarV2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+                example: "webcal://im2-api.infomentor.se/V1/CalendarV2/IcalSubscription/Subscription/f3f2e850-b5d4-11ef-ac7e-96584d5248b2"
+
   /timetable/timetable/appData:
     post:
       summary: POST appdata
