@@ -834,9 +834,11 @@ paths:
                     id:
                       type: number
                     o365EventId:
-                      type: object
+                      type: number
+                      nullable: true
                     googleEventId:
-                      type: object
+                      type: number
+                      nullable: true
                     title:
                       type: string
                     text:
@@ -865,12 +867,19 @@ paths:
                       type: boolean
                     subjects:
                       type: array
-                      items: {}
+                      items: 
+                        type: object
+                        properties:
+                          id: 
+                            type: number
+                          title:
+                            type: string
                     courses:
                       type: array
                       items: {}
                     url:
-                      type: object
+                      type: string
+                      nullable: true
                     description:
                       type: string
       requestBody:
@@ -886,7 +895,7 @@ paths:
   /calendarv2/calendarv2/geticalsubscriptionuri:
     post:
       summary: POST getIcalSubscriptionUri
-      description: Get the calendar subscription URL to use in calendars. Responds with a link using teh webcal:// protocol! Also responds with quotes
+      description: Get the calendar subscription URL to use in calendars. Responds with a link using the webcal:// protocol! Also responds with quotes
       tags:
         - CalendarV2
       responses:
@@ -2432,7 +2441,8 @@ paths:
                             type: object
                             properties:
                               address:
-                                type: object
+                                type: string
+                                nullable: true
                               canReceiveEmail:
                                 type: boolean
                               establishmentId:
@@ -2442,9 +2452,11 @@ paths:
                               name:
                                 type: string
                               phone:
-                                type: object
+                                type: string
+                                nullable: true
                               email:
-                                type: object
+                                type: string
+                                nullable: true
                   urls:
                     type: object
                     properties:
@@ -2610,7 +2622,8 @@ paths:
                       phone:
                         type: string
                       mobile:
-                        type: object
+                        type: string
+                        nullable: true
                       canViewAddresses:
                         type: boolean
                       canViewPhone:
@@ -2635,7 +2648,8 @@ paths:
                         name:
                           type: string
                         groups:
-                          type: object
+                          type: string
+                          nullable: true
                         address:
                           type: string
                         phone:
@@ -2685,13 +2699,17 @@ paths:
                       name:
                         type: string
                       groups:
-                        type: object
+                        type: string
+                        nullable: true
                       address:
-                        type: object
+                        type: string
+                        nullable: true
                       phone:
-                        type: object
+                        type: string
+                        nullable: true
                       mobile:
-                        type: object
+                        type: string
+                        nullable: true
                       isTutor:
                         type: boolean
                       canViewAddresses:
