@@ -4515,7 +4515,9 @@ paths:
                 properties:
                   timeRegistrationDates:
                     type: array
-                    items: {}
+                    items: 
+                      type: string
+                      format: date
                   currentCulture:
                     type: string
                   currentTimeZoneOffset:
@@ -4665,8 +4667,10 @@ paths:
                 properties:
                   startDate:
                     type: string
+                    format: date-time
                   endDate:
                     type: string
+                    format: date-time
                   days:
                     type: array
                     items:
@@ -4676,12 +4680,17 @@ paths:
                           type: number
                         date:
                           type: string
+                          format: date-time
                         startDateTime:
                           type: object
+                          format: date-time
+                          nullable: true
                         endDateTime:
                           type: object
+                          format: date-time
+                          nullable: true
                         onLeave:
-                          type: number
+                          type: boolean
                         isLocked:
                           type: boolean
                         isSchoolClosed:
@@ -4692,8 +4701,10 @@ paths:
                           type: string
                         schoolOpeningTime:
                           type: string
+                          format: date-time
                         schoolClosingTime:
                           type: string
+                          format: date-time
                         hasUnreadComments:
                           type: boolean
                         hasComments:
@@ -4883,11 +4894,14 @@ paths:
                 academicYearId:
                   type: string
                 subjects:
-                  type: object
+                  type: string
+                  nullable: true
                 teachers:
-                  type: object
+                  type: string
+                  nullable: true
                 courses:
-                  type: object
+                  type: string
+                  nullable: true
   /attendance/attendance/GetLeaveRequestList:
     post:
       summary: POST getleaverequestlist
