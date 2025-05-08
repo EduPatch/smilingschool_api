@@ -4742,7 +4742,8 @@ paths:
                       type: object
                       properties:
                         message:
-                          type: object
+                          type: string
+                          nullable: true
                         title:
                           type: string
                         type:
@@ -4762,8 +4763,9 @@ paths:
                         type: number
                       date:
                         type: string
+                        format: date-time
                       onLeave:
-                        type: number
+                        type: boolean
                       isLocked:
                         type: boolean
                       isSchoolClosed:
@@ -4774,8 +4776,10 @@ paths:
                         type: string
                       schoolOpeningTime:
                         type: string
+                        format: date-time
                       schoolClosingTime:
                         type: string
+                        format: date-time
                       hasUnreadComments:
                         type: boolean
                       hasComments:
